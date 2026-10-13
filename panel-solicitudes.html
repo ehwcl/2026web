@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Solicitudes · mejorame.org</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --marfil:#F7F4EE; --arena:#D8CBB9; --salvia:#A8B3A0; --taupe:#5B554D;
+    --turquesa:#19B8C5; --turquesa-deep:#0D808B; --fucsia:#E0005A; --fucsia-deep:#B8004A;
+    --card:#FDFBF7; --line:#E4DCCD; --soft:#6E675E;
+  }
+  *{box-sizing:border-box}
+  [hidden]{display:none !important}
+  body{margin:0;background:var(--marfil);color:var(--taupe);font-family:'Montserrat',sans-serif;font-size:14px}
+  h1,h2{font-family:'Cormorant Garamond',serif;font-weight:700;margin:0}
+  header{position:sticky;top:0;z-index:5;background:rgba(247,244,238,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:12px 16px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  header h1{font-size:1.6rem}
+  .badge{background:var(--fucsia);color:#fff;border-radius:999px;font-size:12px;font-weight:600;padding:3px 10px;display:none}
+  .badge.on{display:inline-block;animation:pulse 1.6s infinite}
+  @keyframes pulse{50%{opacity:.6}}
+  .spacer{flex:1}
+  .live{font-size:12px;color:var(--soft);display:flex;align-items:center;gap:6px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#aaa}
+  .dot.ok{background:#2fa66a}.dot.err{background:var(--fucsia)}
+  button,input,textarea{font:inherit}
+  button{cursor:pointer}
+  .btn{border:1px solid var(--arena);background:var(--card);color:var(--taupe);border-radius:10px;padding:7px 12px;font-size:12px;font-weight:600}
+  .btn:hover{background:#EDE5D8}
+  .btn.primary{background:var(--fucsia);border-color:var(--fucsia);color:#fff}
+  .btn.primary:hover{background:var(--fucsia-deep)}
+  .btn.danger{color:var(--fucsia-deep)}
+  .btn:disabled{opacity:.6;cursor:default}
+  main{max-width:900px;margin:0 auto;padding:16px}
+  .banner{background:#FBEAF1;border:1px solid rgba(224,0,90,.3);color:var(--fucsia-deep);border-radius:12px;padding:10px 14px;margin-bottom:12px;font-size:13px}
+  .tabs{display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap}
+  .tab{border:1px solid var(--arena);background:var(--card);border-radius:999px;padding:6px 14px;font-size:12px;font-weight:600;color:var(--soft)}
+  .tab.on{background:var(--turquesa-deep);border-color:var(--turquesa-deep);color:#fff}
+  .list{display:flex;flex-direction:column;gap:10px}
+  .row{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;display:flex;align-items:center;gap:12px;cursor:pointer;text-align:left;width:100%;color:inherit}
+  .row:hover{border-color:var(--turquesa)}
+  .row.nueva{border-left:5px solid var(--fucsia)}
+  .row .who{font-weight:600}
+  .row .meta{font-size:12px;color:var(--soft);margin-top:2px}
+  .row .main{flex:1;min-width:0}
+  .row .main div{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .pill{font-size:11px;font-weight:600;border-radius:999px;padding:2px 9px;border:1px solid var(--arena);background:#EDE5D8;color:var(--turquesa-deep);white-space:nowrap}
+  .pill.nueva{background:#FBEAF1;border-color:rgba(224,0,90,.3);color:var(--fucsia-deep)}
+  .pill.contactada{background:#E6F3EC;border-color:#b9dcc9;color:#23724a}
+  .int{font-weight:700;color:var(--fucsia-deep);min-width:42px;text-align:right}
+  .empty{text-align:center;color:var(--soft);padding:48px 12px;background:var(--card);border:1px dashed var(--arena);border-radius:14px}
+  /* setup */
+  #setup{max-width:560px;margin:5vh auto;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px}
+  #setup h1{font-size:2rem}
+  #setup p,.help{color:var(--soft);line-height:1.55;margin:8px 0}
+  label{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--turquesa-deep);font-weight:600;margin:14px 0 4px}
+  input[type=text],input[type=password],textarea{width:100%;padding:10px 12px;border:1px solid var(--arena);border-radius:10px;background:#F5F0E6;color:var(--taupe)}
+  textarea{min-height:90px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:11.5px}
+  .err-msg{color:var(--fucsia-deep);font-size:12px;min-height:16px;margin-top:8px}
+  .ok-msg{color:#23724a;font-size:12px;margin-top:8px}
+  details{margin-top:12px}
+  summary{cursor:pointer;font-weight:600;font-size:13px;color:var(--turquesa-deep)}
+  /* detail / settings modal */
+  .overlay{position:fixed;inset:0;background:rgba(60,55,49,.6);backdrop-filter:blur(3px);display:none;align-items:flex-start;justify-content:center;padding:20px;overflow-y:auto;z-index:20}
+  .overlay.on{display:flex}
+  .modal{background:var(--card);border-radius:18px;max-width:600px;width:100%;padding:24px;margin-top:4vh;border:1px solid var(--line)}
+  .modal h2{font-size:1.8rem}
+  dl{display:grid;grid-template-columns:130px 1fr;gap:8px 12px;margin:16px 0}
+  dt{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--turquesa-deep);font-weight:600;padding-top:2px}
+  dd{margin:0;word-break:break-word}
+  .detail-box{background:#F5F0E6;border:1px solid var(--line);border-radius:12px;padding:12px;white-space:pre-wrap}
+  .actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+  .warn{background:#FFF6E0;border:1px solid #EBD79A;border-radius:12px;padding:10px 14px;color:#6b5513;font-size:13px;margin:12px 0}
+  .toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%) translateY(30px);opacity:0;background:var(--taupe);color:#fff;padding:12px 18px;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.3);transition:.3s;z-index:40;max-width:90vw;cursor:pointer;pointer-events:none}
+  .toast.on{opacity:1;transform:translateX(-50%) translateY(0);pointer-events:auto}
+  @media(max-width:520px){dl{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<!-- CONFIGURACIÓN INICIAL (solo la primera vez en cada dispositivo) -->
+<div id="setup" hidden>
+  <h1>Solicitudes</h1>
+  <p>Panel privado de mejorame.org. Conecta el repositorio donde se guardan las solicitudes. Los datos que llegan están cifrados: solo este panel, con tu clave privada, puede leerlos.</p>
+
+  <label for="repo">Repositorio de datos (usuario/nombre)</label>
+  <input type="text" id="repo" value="ehwcl/form" autocomplete="off" spellcheck="false">
+
+  <label for="token">Token de GitHub</label>
+  <input type="password" id="token" placeholder="github_pat_…" autocomplete="off" spellcheck="false">
+  <div class="help">Token de acceso fino con permiso <strong>Contents: Read and write</strong> solo sobre ese repositorio.</div>
+
+  <details id="keyDetails">
+    <summary>Ya tengo una clave privada (otro dispositivo o respaldo)</summary>
+    <label for="privIn">Clave privada (el texto del respaldo)</label>
+    <textarea id="privIn" placeholder='{"kty":"RSA", …}' spellcheck="false"></textarea>
+    <div class="help">Si la dejas vacía se generará un par de claves nuevo, apto para la primera configuración.</div>
+  </details>
+
+  <div class="err-msg" id="setupErr"></div>
+  <button class="btn primary" id="setupBtn" style="width:100%;padding:11px;margin-top:10px">Conectar</button>
+</div>
+
+<div id="app" hidden>
+  <header>
+    <h1>Solicitudes</h1>
+    <span class="badge" id="badge">0 nuevas</span>
+    <span class="spacer"></span>
+    <span class="live"><span class="dot" id="dot"></span><span id="liveTxt">Conectando…</span></span>
+    <button class="btn" id="notifBtn">🔔 Activar avisos</button>
+    <button class="btn" id="soundBtn" title="Sonido de aviso">🔊</button>
+    <button class="btn" id="refreshBtn" title="Actualizar">↻</button>
+    <button class="btn" id="settingsBtn">⚙ Conexión</button>
+  </header>
+  <main>
+    <div class="banner" id="banner" hidden></div>
+    <div class="tabs" id="tabs"></div>
+    <div class="list" id="list"></div>
+  </main>
+</div>
+
+<div class="overlay" id="overlay"><div class="modal" id="modal"></div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+  'use strict';
+  var API = 'https://api.github.com/repos/';
+  var CFG_STORE='ehw_cfg', CACHE_STORE='ehw_cache', SEEN_STORE='ehw_seen', SOUND_STORE='ehw_sound';
+  var POLL_MS = 45000;
+  var cfg = null, privKey = null;
+  var items = [], estado = {}, estadoSha = null, filter = 'nueva', known = null, timer = null, loading = false;
+  var baseTitle = document.title;
+  var $ = function(id){ return document.getElementById(id); };
+
+  /* ---------- utilidades ---------- */
+  function store(k, v){
+    try{
+      if (v === undefined) return localStorage.getItem(k);
+      if (v === null) localStorage.removeItem(k); else localStorage.setItem(k, v);
+    }catch(e){ return null; }
+  }
+  function esc(t){ return String(t==null?'':t).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];}); }
+  function fmt(iso){ try{ return new Date(iso).toLocaleString('es-CL',{dateStyle:'medium',timeStyle:'short'}); }catch(e){ return iso; } }
+  function waLink(tel, nombre){
+    var d = String(tel).replace(/\D/g,'');
+    if (d.length===9 && d[0]==='9') d = '56'+d;
+    else if (d.length===8) d = '569'+d;
+    return 'https://wa.me/'+d+'?text='+encodeURIComponent('Hola '+nombre+', te escribimos de mejorame.org por tu solicitud de evaluación.');
+  }
+  function b64ToBytes(b64){ var bin=atob(b64), a=new Uint8Array(bin.length); for(var i=0;i<bin.length;i++) a[i]=bin.charCodeAt(i); return a; }
+  function utf8ToB64(str){ var bytes=new TextEncoder().encode(str), s=''; for(var i=0;i<bytes.length;i++) s+=String.fromCharCode(bytes[i]); return btoa(s); }
+  function b64ToUtf8(b64){ return new TextDecoder().decode(b64ToBytes(b64.replace(/\s/g,''))); }
+
+  /* ---------- cifrado ---------- */
+  /*CRYPTO-START*/
+  async function generarClaves(){
+    var kp = await crypto.subtle.generateKey({name:'RSA-OAEP',modulusLength:2048,publicExponent:new Uint8Array([1,0,1]),hash:'SHA-256'}, true, ['encrypt','decrypt']);
+    return { priv: await crypto.subtle.exportKey('jwk', kp.privateKey), pub: await crypto.subtle.exportKey('jwk', kp.publicKey) };
+  }
+  function publicDesdePrivada(priv){
+    return { kty:'RSA', n:priv.n, e:priv.e, alg:'RSA-OAEP-256', ext:true, key_ops:['encrypt'] };
+  }
+  async function importarPrivada(jwk){
+    return crypto.subtle.importKey('jwk', jwk, {name:'RSA-OAEP',hash:'SHA-256'}, false, ['decrypt']);
+  }
+  async function descifrar(sobre, key){
+    var raw = await crypto.subtle.decrypt({name:'RSA-OAEP'}, key, b64ToBytes(sobre.k));
+    var aes = await crypto.subtle.importKey('raw', raw, {name:'AES-GCM'}, false, ['decrypt']);
+    var pt = await crypto.subtle.decrypt({name:'AES-GCM', iv:b64ToBytes(sobre.iv)}, aes, b64ToBytes(sobre.ct));
+    return JSON.parse(new TextDecoder().decode(pt));
+  }
+  /*CRYPTO-END*/
+
+  /* ---------- GitHub ---------- */
+  function gh(path, opts){
+    opts = opts || {};
+    var headers = { 'Authorization':'Bearer '+cfg.token, 'Accept': opts.raw ? 'application/vnd.github.raw+json' : 'application/vnd.github+json', 'X-GitHub-Api-Version':'2022-11-28' };
+    if (opts.body) headers['Content-Type'] = 'application/json';
+    return fetch(API + cfg.repo + path, { method: opts.method||'GET', headers: headers, body: opts.body ? JSON.stringify(opts.body) : undefined, cache:'no-store' });
+  }
+  function ghError(res){
+    var e = new Error('GitHub '+res.status); e.status = res.status; return e;
+  }
+
+  async function listarArchivos(){
+    var res = await gh('/contents/data');
+    if (res.status === 404) return [];
+    if (!res.ok) throw ghError(res);
+    var arr = await res.json();
+    return arr.filter(function(f){ return f.type==='file' && /\.json$/.test(f.name); }).map(function(f){ return {name:f.name, sha:f.sha}; });
+  }
+
+  async function leerEstado(){
+    var res = await gh('/contents/estado.json');
+    if (res.status === 404) { estado = {}; estadoSha = null; return; }
+    if (!res.ok) throw ghError(res);
+    var j = await res.json();
+    try { estado = JSON.parse(b64ToUtf8(j.content)) || {}; } catch(e){ estado = {}; }
+    estadoSha = j.sha;
+  }
+
+  // Aplica un cambio sobre estado.json y lo guarda (reintenta si hubo conflicto).
+  async function guardarEstado(mutar){
+    for (var i=0;i<4;i++){
+      mutar(estado);
+      var body = { message:'Actualizar estados', content: utf8ToB64(JSON.stringify(estado,null,2)) };
+      if (estadoSha) body.sha = estadoSha;
+      var res = await gh('/contents/estado.json', {method:'PUT', body:body});
+      if (res.ok){ var j = await res.json(); estadoSha = j.content.sha; return; }
+      if (res.status===409 || res.status===422){ await leerEstado(); continue; }
+      throw ghError(res);
+    }
+    throw new Error('Conflicto al guardar');
+  }
+
+  async function leerSolicitud(name){
+    var res = await gh('/contents/data/'+encodeURIComponent(name), {raw:true});
+    if (!res.ok) throw ghError(res);
+    var sobre = await res.json();
+    return descifrar(sobre, privKey);
+  }
+
+  /* ---------- caché local de solicitudes ya descifradas ---------- */
+  function loadCache(){ try{ return JSON.parse(store(CACHE_STORE)||'{}')||{}; }catch(e){ return {}; } }
+  function saveCache(c){ store(CACHE_STORE, JSON.stringify(c)); }
+
+  /* ---------- avisos ---------- */
+  function beep(){
+    if (store(SOUND_STORE)==='off') return;
+    try{
+      var C = window.AudioContext||window.webkitAudioContext, c = new C(), t = c.currentTime;
+      [880,1175].forEach(function(f,i){
+        var o=c.createOscillator(), g=c.createGain();
+        o.frequency.value=f; o.connect(g); g.connect(c.destination);
+        g.gain.setValueAtTime(0.0001,t+i*.18); g.gain.exponentialRampToValueAtTime(.25,t+i*.18+.02); g.gain.exponentialRampToValueAtTime(.0001,t+i*.18+.25);
+        o.start(t+i*.18); o.stop(t+i*.18+.3);
+      });
+    }catch(e){}
+  }
+  function toast(msg, onclick){
+    var t=$('toast'); t.textContent=msg; t.classList.add('on'); t.onclick=function(){ t.classList.remove('on'); if(onclick) onclick(); };
+    clearTimeout(toast._t); toast._t=setTimeout(function(){ t.classList.remove('on'); }, 9000);
+  }
+  function notifyNew(fresh){
+    var txt = fresh.length===1 ? 'Nueva solicitud: '+fresh[0].nombre+' — '+fresh[0].dolor : fresh.length+' solicitudes nuevas';
+    beep();
+    toast('🔔 '+txt, function(){ filter='nueva'; render(); if(fresh.length===1) openDetail(fresh[0].name); });
+    if ('Notification' in window && Notification.permission==='granted'){
+      try{ new Notification('mejorame.org', { body: txt, tag:'ehw-nueva' }); }catch(e){}
+    }
+  }
+  function updateNotifBtn(){
+    var b=$('notifBtn');
+    if(!('Notification' in window)){ b.style.display='none'; return; }
+    b.textContent = Notification.permission==='granted' ? '🔔 Avisos activos' : '🔔 Activar avisos';
+  }
+  function updateSoundBtn(){ $('soundBtn').textContent = store(SOUND_STORE)==='off' ? '🔇' : '🔊'; }
+  function showBanner(msg){ var b=$('banner'); if(msg){ b.textContent=msg; b.hidden=false; } else { b.hidden=true; } }
+
+  /* ---------- carga de datos ---------- */
+  async function load(){
+    if (loading || !cfg) return;
+    loading = true;
+    try{
+      var files = await listarArchivos();
+      await leerEstado();
+      var cache = loadCache(), names = {};
+      files.forEach(function(f){ names[f.name]=1; });
+      // quitar de la caché lo que ya no existe
+      Object.keys(cache).forEach(function(n){ if(!names[n]) delete cache[n]; });
+
+      var missing = files.filter(function(f){ return !cache[f.name]; });
+      for (var i=0;i<missing.length;i+=5){
+        await Promise.all(missing.slice(i,i+5).map(async function(f){
+          try { cache[f.name] = await leerSolicitud(f.name); }
+          catch(e){ cache[f.name] = { _fallo:true, nombre:'(no se pudo descifrar)', telefono:'', dolor:'Archivo '+f.name, duracion:'', intensidad:0, detalle:'Este archivo no se pudo descifrar con la clave privada de este dispositivo.', fecha:f.name.slice(0,15) }; }
+        }));
+      }
+      saveCache(cache);
+
+      items = files.map(function(f){
+        var d = cache[f.name];
+        return Object.assign({}, d, { name:f.name, sha:f.sha, estado: estado[f.name] || 'nueva' });
+      }).sort(function(a,b){ return a.name < b.name ? 1 : -1; });
+
+      $('dot').className='dot ok';
+      $('liveTxt').textContent='Actualizado '+new Date().toLocaleTimeString('es-CL',{hour:'2-digit',minute:'2-digit'});
+      showBanner('');
+
+      var all = items.map(function(s){ return s.name; });
+      if (known===null){
+        var saved = null; try{ saved = JSON.parse(store(SEEN_STORE)||'null'); }catch(e){}
+        known = new Set(saved || all);
+      }
+      var fresh = items.filter(function(s){ return s.estado==='nueva' && !s._fallo && !known.has(s.name); });
+      all.forEach(function(n){ known.add(n); });
+      store(SEEN_STORE, JSON.stringify(Array.from(known).slice(-2000)));
+      render();
+      if (fresh.length) notifyNew(fresh);
+    }catch(e){
+      $('dot').className='dot err';
+      if (e.status===401 || e.status===403){
+        $('liveTxt').textContent='Sin acceso';
+        showBanner('GitHub rechazó el token (vencido, revocado o sin permiso). Crea uno nuevo y actualízalo en ⚙ Conexión.');
+      } else if (e.status===404){
+        $('liveTxt').textContent='Repositorio no encontrado';
+        showBanner('No se encontró el repositorio '+cfg.repo+'. Revisa el nombre y que el token tenga acceso a él.');
+      } else {
+        $('liveTxt').textContent='Sin conexión — reintentando';
+      }
+    } finally { loading = false; }
+  }
+
+  function counts(){ var c={nueva:0,vista:0,contactada:0}; items.forEach(function(s){ c[s.estado]=(c[s.estado]||0)+1; }); return c; }
+
+  function render(){
+    var c = counts();
+    var b=$('badge'); b.textContent=c.nueva+(c.nueva===1?' nueva':' nuevas'); b.classList.toggle('on', c.nueva>0);
+    document.title = (c.nueva>0 ? '('+c.nueva+') ' : '') + baseTitle;
+    var defs=[['nueva','Nuevas'],['vista','Vistas'],['contactada','Contactadas'],['todas','Todas']];
+    $('tabs').innerHTML = defs.map(function(d){
+      var n = d[0]==='todas' ? items.length : (c[d[0]]||0);
+      return '<button class="tab'+(filter===d[0]?' on':'')+'" data-f="'+d[0]+'">'+d[1]+' ('+n+')</button>';
+    }).join('');
+    var shown = items.filter(function(s){ return filter==='todas' || s.estado===filter; });
+    $('list').innerHTML = shown.length ? shown.map(function(s){
+      return '<button class="row '+esc(s.estado)+'" data-name="'+esc(s.name)+'">'+
+        '<div class="main"><div class="who">'+esc(s.nombre)+'</div>'+
+        '<div class="meta">'+esc(s.dolor)+'</div>'+
+        '<div class="meta">'+esc(fmt(s.fecha))+' · '+esc(s.telefono)+'</div></div>'+
+        '<span class="int" title="Intensidad">'+(s.intensidad?esc(s.intensidad)+'/10':'')+'</span>'+
+        '<span class="pill '+esc(s.estado)+'">'+esc(s.estado)+'</span></button>';
+    }).join('') : '<div class="empty">No hay solicitudes en esta categoría.</div>';
+  }
+
+  /* ---------- detalle ---------- */
+  function openDetail(name){
+    var s = items.find(function(x){return x.name===name;}); if(!s) return;
+    $('modal').innerHTML =
+      '<h2>'+esc(s.nombre)+'</h2><span class="pill '+esc(s.estado)+'">'+esc(s.estado)+'</span>'+
+      '<dl><dt>Recibida</dt><dd>'+esc(fmt(s.fecha))+'</dd>'+
+      '<dt>Teléfono</dt><dd><a href="tel:'+esc(s.telefono)+'">'+esc(s.telefono)+'</a></dd>'+
+      '<dt>Motivo</dt><dd>'+esc(s.dolor)+'</dd>'+
+      '<dt>Tiempo con dolor</dt><dd>'+esc(s.duracion)+'</dd>'+
+      '<dt>Intensidad</dt><dd><strong>'+esc(s.intensidad)+'/10</strong></dd>'+
+      '<dt>Lo que siente</dt><dd><div class="detail-box">'+esc(s.detalle||'Sin detalles adicionales')+'</div></dd></dl>'+
+      '<div class="actions">'+
+        (s._fallo ? '' : '<a class="btn primary" style="text-decoration:none" target="_blank" rel="noopener" href="'+esc(waLink(s.telefono,s.nombre))+'" data-act="wa">Escribir por WhatsApp</a>'+
+        '<a class="btn" style="text-decoration:none" href="tel:'+esc(s.telefono)+'">Llamar</a>')+
+        (s.estado!=='contactada'?'<button class="btn" data-act="contactada">Marcar contactada</button>':'')+
+        (s.estado!=='nueva'?'<button class="btn" data-act="nueva">Volver a nueva</button>':'')+
+        '<button class="btn danger" data-act="eliminar">Eliminar</button>'+
+        '<button class="btn" data-act="cerrar">Cerrar</button></div>';
+    $('modal').dataset.name = name;
+    $('overlay').classList.add('on');
+    if (s.estado==='nueva' && !s._fallo) setEstado(name,'vista',true);
+  }
+  function closeModal(){ $('overlay').classList.remove('on'); }
+
+  async function setEstado(name, nuevo, quiet){
+    items.forEach(function(s){ if(s.name===name) s.estado=nuevo; });
+    render();
+    try{ await guardarEstado(function(e){ e[name]=nuevo; }); }
+    catch(e){ if(!quiet) toast('No se pudo actualizar el estado'); }
+  }
+  async function eliminar(name){
+    var it = items.find(function(s){return s.name===name;});
+    items = items.filter(function(s){return s.name!==name;}); render(); closeModal();
+    try{
+      var res = await gh('/contents/data/'+encodeURIComponent(name), {method:'DELETE', body:{message:'Eliminar solicitud', sha: it && it.sha}});
+      if (!res.ok && res.status!==404) throw ghError(res);
+      var c = loadCache(); delete c[name]; saveCache(c);
+      await guardarEstado(function(e){ delete e[name]; });
+    }catch(e){ toast('No se pudo eliminar'); load(); }
+  }
+
+  /* ---------- configuración / conexión ---------- */
+  function chunks(str, n){ var out=[]; for(var i=0;i<str.length;i+=n) out.push(str.slice(i,i+n)); return out; }
+  function configSnippet(){
+    var pub = publicDesdePrivada(cfg.priv);
+    return '// Generado por panel-solicitudes.html — pegar completo en form-config.js\n' +
+      'window.FORM_CONFIG = {\n' +
+      '  repo: ' + JSON.stringify(cfg.repo) + ',\n' +
+      '  token: ' + JSON.stringify(chunks(cfg.token, 12)) + ',\n' +
+      '  publicKey: ' + JSON.stringify(pub) + '\n' +
+      '};\n';
+  }
+  function openSettings(first){
+    $('modal').innerHTML =
+      '<h2>Conexión</h2>'+
+      (first ? '<div class="warn"><strong>Importante:</strong> descarga el respaldo de la clave privada y guárdalo en un lugar seguro. Si lo pierdes y borras los datos de este navegador, no podrás leer las solicitudes.</div>' : '')+
+      '<p class="help"><strong>Paso 1.</strong> Copia este texto y pégalo en el archivo <code>form-config.js</code> de tu sitio (reemplaza todo su contenido). Con eso el formulario de dolor.html queda activo.</p>'+
+      '<textarea id="snip" readonly spellcheck="false" style="min-height:150px">'+esc(configSnippet())+'</textarea>'+
+      '<div class="actions"><button class="btn primary" id="copySnip">Copiar texto</button>'+
+      '<button class="btn" id="dlSnip">Descargar form-config.js</button></div>'+
+      '<p class="help" style="margin-top:18px"><strong>Paso 2.</strong> Respaldo de tu clave privada (para abrir este panel en otro dispositivo).</p>'+
+      '<div class="actions"><button class="btn" id="dlKey">Descargar respaldo de clave privada</button></div>'+
+      '<details><summary>Cambiar token</summary>'+
+        '<label for="newToken">Nuevo token de GitHub</label><input type="password" id="newToken" placeholder="github_pat_…" autocomplete="off">'+
+        '<div class="actions"><button class="btn" id="saveToken">Actualizar token</button></div>'+
+        '<p class="help">Después de cambiarlo, vuelve a copiar el texto del paso 1 a form-config.js.</p></details>'+
+      '<div class="actions" style="margin-top:20px;border-top:1px solid var(--line);padding-top:14px">'+
+        '<button class="btn danger" id="forget">Desconectar este dispositivo</button>'+
+        '<button class="btn" id="closeSet">Cerrar</button></div>';
+    $('modal').dataset.name = '';
+    $('overlay').classList.add('on');
+  }
+  function download(name, text, type){
+    var a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([text],{type:type||'text/plain'})); a.download=name;
+    document.body.appendChild(a); a.click(); setTimeout(function(){ URL.revokeObjectURL(a.href); a.remove(); }, 500);
+  }
+
+  /* ---------- arranque ---------- */
+  function saveCfg(){ store(CFG_STORE, JSON.stringify(cfg)); }
+  async function startApp(first){
+    privKey = await importarPrivada(cfg.priv);
+    $('setup').hidden = true; $('app').hidden = false;
+    updateNotifBtn(); updateSoundBtn();
+    if (first) openSettings(true);
+    load();
+    clearInterval(timer); timer = setInterval(load, POLL_MS);
+  }
+  function showSetup(){ $('app').hidden = true; $('setup').hidden = false; }
+
+  async function doSetup(){
+    var btn=$('setupBtn'), err=$('setupErr'); err.textContent='';
+    var repo=$('repo').value.trim().replace(/^https?:\/\/github\.com\//,'').replace(/\/+$/,'');
+    var token=$('token').value.trim();
+    if (!/^[\w.-]+\/[\w.-]+$/.test(repo)) { err.textContent='Escribe el repositorio como usuario/nombre, por ejemplo ehwcl/form.'; return; }
+    if (token.length<20) { err.textContent='Pega el token de GitHub.'; return; }
+    if (!(window.crypto && crypto.subtle)) { err.textContent='Este navegador no permite cifrado. Abre el panel desde la dirección https de tu sitio.'; return; }
+    btn.disabled=true; btn.textContent='Conectando…';
+    try{
+      // 1) verificar acceso al repositorio
+      var r = await fetch(API+repo, {headers:{'Authorization':'Bearer '+token,'Accept':'application/vnd.github+json'}});
+      if (r.status===401) throw new Error('GitHub no aceptó el token.');
+      if (r.status===404) throw new Error('No se encontró el repositorio, o el token no tiene acceso a él.');
+      if (!r.ok) throw new Error('GitHub respondió '+r.status+'.');
+      var info = await r.json();
+      if (info.permissions && info.permissions.push===false) throw new Error('El token no tiene permiso de escritura (Contents: Read and write).');
+      if (info.private===false) throw new Error('El repositorio es público: las solicitudes quedarían a la vista. Usa un repositorio privado.');
+
+      // 2) claves
+      var priv, pasted=$('privIn').value.trim(), first=false;
+      if (pasted){
+        try{ priv = JSON.parse(pasted); await importarPrivada(priv); }
+        catch(e){ throw new Error('La clave privada pegada no es válida.'); }
+      } else {
+        priv = (await generarClaves()).priv; first = true;
+      }
+      cfg = { repo:repo, token:token, priv:priv };
+      saveCfg();
+      $('token').value=''; $('privIn').value='';
+      await startApp(first);
+    }catch(e){
+      err.textContent = e.message || 'No se pudo conectar.';
+    }finally{ btn.disabled=false; btn.textContent='Conectar'; }
+  }
+
+  /* ---------- eventos ---------- */
+  $('setupBtn').onclick = doSetup;
+  $('refreshBtn').onclick = function(){ load(); };
+  $('settingsBtn').onclick = function(){ openSettings(false); };
+  $('notifBtn').onclick = function(){
+    if(!('Notification' in window)) return;
+    Notification.requestPermission().then(function(){ updateNotifBtn(); beep(); });
+  };
+  $('soundBtn').onclick = function(){ store(SOUND_STORE, store(SOUND_STORE)==='off'?'on':'off'); updateSoundBtn(); beep(); };
+  $('tabs').addEventListener('click',function(e){ var t=e.target.closest('.tab'); if(t){ filter=t.dataset.f; render(); } });
+  $('list').addEventListener('click',function(e){ var r=e.target.closest('.row'); if(r) openDetail(r.dataset.name); });
+  $('overlay').addEventListener('click',function(e){ if(e.target===$('overlay')) closeModal(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeModal(); });
+  document.addEventListener('visibilitychange',function(){ if(!document.hidden && cfg) load(); });
+
+  $('modal').addEventListener('click',async function(e){
+    var b=e.target.closest('button,[data-act]'); if(!b) return;
+    var name=$('modal').dataset.name, act=b.dataset.act, id=b.id;
+    if (id==='copySnip'){
+      var ta=$('snip'); ta.select();
+      try{ await navigator.clipboard.writeText(ta.value); } catch(err){ document.execCommand('copy'); }
+      b.textContent='¡Copiado!'; return;
+    }
+    if (id==='dlSnip'){ download('form-config.js', configSnippet(), 'text/javascript'); return; }
+    if (id==='dlKey'){ download('ehw-clave-privada.json', JSON.stringify(cfg.priv), 'application/json'); return; }
+    if (id==='saveToken'){
+      var t=$('newToken').value.trim(); if(t.length<20) return;
+      cfg.token=t; saveCfg(); $('snip').value=configSnippet(); $('newToken').value=''; b.textContent='Token actualizado'; load(); return;
+    }
+    if (id==='forget'){
+      if(!confirm('Se borrarán la clave y el token de ESTE dispositivo. Necesitarás tu respaldo de la clave privada para volver a leer las solicitudes. ¿Continuar?')) return;
+      clearInterval(timer); ['ehw_cfg','ehw_cache','ehw_seen'].forEach(function(k){ store(k,null); });
+      cfg=null; privKey=null; items=[]; known=null; closeModal(); document.title=baseTitle; showSetup(); return;
+    }
+    if (id==='closeSet'){ closeModal(); return; }
+    if (act==='cerrar') closeModal();
+    else if (act==='contactada' || act==='nueva'){ await setEstado(name, act); closeModal(); }
+    else if (act==='eliminar'){
+      if(!confirm('¿Eliminar esta solicitud definitivamente?')) return;
+      await eliminar(name);
+    }
+    else if (act==='wa'){ setEstado(name,'contactada',true); }
+  });
+
+  (async function init(){
+    var saved=null; try{ saved = JSON.parse(store(CFG_STORE)||'null'); }catch(e){}
+    if (saved && saved.repo && saved.token && saved.priv){
+      cfg = saved;
+      try{ await startApp(false); } catch(e){ cfg=null; showSetup(); }
+    } else { showSetup(); }
+  })();
+})();
+</script>
+</body>
+</html>

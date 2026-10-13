@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>mejorame.org - Centro Especializado en Alivio del Dolor y Salud Integral</title>
+  <meta name="description" content="¿Qué dolor necesitas aliviar hoy? Identifica tu dolor de espalda, cuello, ciática, rodilla o cabeza y recibe orientación terapéutica de inmediato en mejorame.org." />
+  
+  <!-- Tipografías de Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  
+  <!-- Tailwind CSS por CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            marfil: '#F7F4EE',
+            arena: '#D8CBB9',
+            salvia: '#A8B3A0',
+            taupe: '#5B554D',
+            turquesa: '#19B8C5',
+            fucsia: '#E0005A',
+          },
+          fontFamily: {
+            display: ['Cormorant Garamond', 'serif'],
+            serif: ['Cormorant Garamond', 'serif'],
+            sans: ['Montserrat', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #F7F4EE;
+      color: #5B554D;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 400;
+    }
+    .font-display { font-family: 'Cormorant Garamond', serif; font-weight: 600 !important; letter-spacing: 0; }
+    .font-serif-luxury { font-family: 'Cormorant Garamond', serif; }
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #0D808B 0%, #19B8C5 55%, #66725F 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #EFE8DD;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #D8CBB9;
+      border-radius: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #19B8C5;
+    }
+    ::selection { background: #D8CBB9; color: #5B554D; }
+  </style>
+</head>
+<body class="min-h-screen bg-[#F7F4EE] text-[#5B554D] selection:bg-[#D8CBB9] selection:text-[#5B554D]">
+
+  <!-- TOP EMERGENCY STRIP -->
+  <div class="bg-[#FDFBF7] text-[#0D808B] text-xs py-1.5 px-4 border-b border-[#E9E1D3]">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <span class="inline-block w-2 h-2 rounded-full bg-[#E0005A] animate-pulse"></span>
+        <span class="font-medium text-[#5B554D]">¿Sientes dolor hoy? <span class="text-[#0D808B] font-semibold">Especialistas disponibles para evaluación esta semana.</span></span>
+      </div>
+      <div class="hidden sm:flex items-center gap-4 text-[#6E675E]">
+        <span class="flex items-center gap-1 text-xs">
+          <svg class="w-3.5 h-3.5 text-[#0D808B]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+          Atención Presencial & Tele-orientación
+        </span>
+        <a href="https://wa.me/56981301319?text=Hola%20mejorame.org%2C%20tengo%20un%20dolor%20y%20quiero%20consultar" target="_blank" class="font-semibold text-[#0D808B] hover:text-[#66725F] transition-colors flex items-center gap-1">
+          <svg class="w-3.5 h-3.5 text-[#0D808B]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+          WhatsApp Directo
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVIGATION BAR -->
+  <header class="sticky top-0 z-40 bg-[#F7F4EE]/95 backdrop-blur-md border-b border-[#E4DCCD] shadow-xl">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <!-- Logo -->
+        <a href="#hero" class="flex items-center gap-3 group">
+          <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-[#19B8C5] via-[#3CC7D2] to-[#0D808B] flex items-center justify-center text-white shadow-lg shadow-[#19B8C5]/25 group-hover:scale-105 transition-transform">
+            <svg class="w-6 h-6 stroke-[2.4]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+          </div>
+          <div>
+            <div class="flex items-baseline gap-1">
+              <span class="text-2xl font-semibold tracking-wider text-[#5B554D] font-display">
+                MEJORAME<span class="text-[#0D808B]">.ORG</span>
+              </span>
+            </div>
+            <p class="text-[10px] font-semibold text-[#766F65] uppercase tracking-widest -mt-0.5">
+              Alivio del Dolor & Salud Integral
+            </p>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden md:flex items-center gap-0.5 lg:gap-1">
+          <a href="#dolores-grid" class="px-2.5 py-2 text-[12.5px] font-medium whitespace-nowrap text-[#5B554D] hover:text-[#0D808B] hover:bg-[#F5F0E6] rounded-lg transition-colors">¿Qué te duele?</a>
+          <a href="#mapa-cuerpo" class="px-2.5 py-2 text-[12.5px] font-medium whitespace-nowrap text-[#5B554D] hover:text-[#0D808B] hover:bg-[#F5F0E6] rounded-lg transition-colors">Mapa Corporal</a>
+          <a href="#evaluador-dolor" class="px-2.5 py-2 text-[12.5px] font-medium whitespace-nowrap text-[#5B554D] hover:text-[#0D808B] hover:bg-[#F5F0E6] rounded-lg transition-colors flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-[#0D808B]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
+            Evaluador de Dolor
+          </a>
+          <a href="#testimonios" class="px-2.5 py-2 text-[12.5px] font-medium whitespace-nowrap text-[#5B554D] hover:text-[#0D808B] hover:bg-[#F5F0E6] rounded-lg transition-colors">Casos de Éxito</a>
+          <a href="#por-que-mejorame" class="px-2.5 py-2 text-[12.5px] font-medium whitespace-nowrap text-[#5B554D] hover:text-[#0D808B] hover:bg-[#F5F0E6] rounded-lg transition-colors">Nuestro Método</a>
+        </nav>
+
+        <!-- Right CTAs -->
+        <div class="hidden lg:flex items-center gap-3">
+          <a href="https://wa.me/56981301319?text=Hola%20www.mejorame.org%2C%20necesito%20orientacion%20por%20un%20dolor" target="_blank" class="px-3.5 py-2.5 whitespace-nowrap rounded-xl border border-[#19B8C5]/45 text-[#0D808B] bg-[#F5F0E6] hover:bg-[#E6DDCD] hover:border-[#19B8C5] font-semibold text-xs flex items-center gap-1.5 transition-all shadow-xs">
+            <svg class="w-4 h-4 text-[#0D808B]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+            <span>WhatsApp</span>
+          </a>
+          <a href="https://ehw.setmore.com/carolina/service/da90e7e1-5045-4b67-8165-39a51cf4cf1b" target="_blank" rel="noopener" class="px-4 py-2.5 whitespace-nowrap rounded-xl bg-gradient-to-r from-[#E0005A] to-[#B8004A] hover:from-[#EE2A78] hover:to-[#C8004F] text-white font-semibold text-xs flex items-center gap-2 transition-all shadow-lg shadow-[#E0005A]/25">
+            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+            <span>Agendar Evaluación</span>
+          </a>
+        </div>
+
+        <!-- Mobile Toggle -->
+        <div class="flex md:hidden items-center gap-2">
+          <a href="https://ehw.setmore.com/carolina/service/da90e7e1-5045-4b67-8165-39a51cf4cf1b" target="_blank" rel="noopener" class="inline-block px-3 py-1.5 rounded-lg bg-[#E0005A] text-white font-semibold text-xs">Cita</a>
+          <button onclick="toggleMobileMenu()" class="p-2 rounded-lg text-[#5B554D] hover:bg-[#EDE5D8] hover:text-[#48433D]" aria-label="Abrir menú">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-[#E4DCCD] bg-[#FDFBF7] px-4 pt-3 pb-6 space-y-2">
+      <a href="#dolores-grid" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg text-sm font-semibold text-[#5B554D] hover:bg-[#EDE5D8] hover:text-[#0D808B]">🩺 Directorio de Dolores ("Me duele...")</a>
+      <a href="#mapa-cuerpo" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg text-sm font-semibold text-[#5B554D] hover:bg-[#EDE5D8] hover:text-[#0D808B]">🧍 Mapa Corporal Interactivo</a>
+      <a href="#evaluador-dolor" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg text-sm font-semibold text-[#5B554D] hover:bg-[#EDE5D8] hover:text-[#0D808B]">✨ Evaluador Rápido de Dolor</a>
+      <a href="#testimonios" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg text-sm font-semibold text-[#5B554D] hover:bg-[#EDE5D8] hover:text-[#0D808B]">💬 Casos Reales y Recuperaciones</a>
+      <a href="#por-que-mejorame" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg text-sm font-semibold text-[#5B554D] hover:bg-[#EDE5D8] hover:text-[#0D808B]">🌿 El Método Mejorame.org</a>
+      <div class="pt-4 border-t border-[#E4DCCD] flex flex-col gap-2">
+        <a href="https://ehw.setmore.com/carolina/service/da90e7e1-5045-4b67-8165-39a51cf4cf1b" target="_blank" rel="noopener" onclick="toggleMobileMenu()" class="block text-center w-full py-3 rounded-xl bg-gradient-to-r from-[#E0005A] to-[#B8004A] text-white font-semibold text-sm">Agendar Evaluación de Dolor</a>
+        <a href="https://wa.me/56981301319?text=Hola%20www.mejorame.org" target="_blank" class="w-full py-2.5 text-center rounded-xl border border-[#19B8C5]/45 text-[#0D808B] bg-[#F5F0E6] font-semibold text-xs">Contactar por WhatsApp</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section id="hero" class="relative overflow-hidden pt-12 pb-20 sm:pt-20 sm:pb-28 bg-[#F1EBE0] border-b border-[#E4DCCD]">
+    <div class="absolute inset-0 bg-[radial-gradient(#A8B3A0_1px,transparent_1px)] [background-size:24px_24px] opacity-40 pointer-events-none"></div>
+    <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-[#A8B3A0]/25 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#EDE5D8] border border-[#19B8C5]/45 text-[#0D808B] text-xs sm:text-sm font-semibold uppercase tracking-widest mb-8 shadow-md">
+        <span class="w-2 h-2 rounded-full bg-[#E0005A]"></span>
+        Orientación & Tratamiento Clínico Directo
+      </div>
+
+      <h1 class="text-5xl sm:text-7xl lg:text-[5.25rem] font-semibold tracking-tight text-[#5B554D] max-w-5xl mx-auto leading-[1.1] font-display">
+        ¿Qué dolor necesitas tratar hoy? <br />
+        <span class="gold-gradient-text">Encuentra tu alivio aquí.</span>
+      </h1>
+
+      <p class="mt-6 text-lg sm:text-xl text-[#6E675E] max-w-3xl mx-auto leading-relaxed font-sans text-[16px] sm:text-[18px]">
+        No te acostumbres a vivir con dolor ni dependas de analgésicos temporales. En <strong class="text-[#5B554D]">mejorame.org</strong> identificamos el origen biomecánico y muscular de tu molestia y te guiamos con especialistas certificados.
+      </p>
+
+      <!-- Instant Search Box -->
+      <div class="mt-10 max-w-2xl mx-auto">
+        <div class="relative flex items-center bg-[#FDFBF7] rounded-2xl border-2 border-[#19B8C5]/55 shadow-xl p-2 focus-within:border-[#19B8C5] transition-all">
+          <svg class="w-6 h-6 text-[#0D808B] ml-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+          <input 
+            type="text" 
+            id="hero-search" 
+            placeholder="Escribe lo que sientes: ej. 'espalda baja', 'cuello rígido', 'rodilla', 'ciática'..."
+            class="w-full bg-transparent border-none px-4 py-3 text-[#5B554D] placeholder-[#9A9186] text-sm sm:text-base focus:outline-none"
+            oninput="handleSearch(this.value)"
+          />
+          <button onclick="scrollToSection('dolores-grid')" class="px-5 py-3 rounded-xl bg-gradient-to-r from-[#E0005A] to-[#B8004A] text-white font-semibold text-sm shrink-0 hover:brightness-110 transition-all shadow-md">
+            Ver Tratamiento
+          </button>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-center gap-2 mt-4 text-xs">
+          <span class="text-[#7E766B] font-semibold">Consultas frecuentes:</span>
+          <button onclick="quickFilter('espalda-baja')" class="px-3 py-1 rounded-full bg-[#EDE5D8] text-[#0D808B] border border-[#A8B3A0]/70 hover:bg-[#E6DDCD] transition-colors">Espalda baja</button>
+          <button onclick="quickFilter('cuello')" class="px-3 py-1 rounded-full bg-[#EDE5D8] text-[#0D808B] border border-[#A8B3A0]/70 hover:bg-[#E6DDCD] transition-colors">Cuello y hombros</button>
+          <button onclick="quickFilter('nervio-ciatico')" class="px-3 py-1 rounded-full bg-[#EDE5D8] text-[#0D808B] border border-[#A8B3A0]/70 hover:bg-[#E6DDCD] transition-colors">Nervio ciático</button>
+          <button onclick="quickFilter('rodilla')" class="px-3 py-1 rounded-full bg-[#EDE5D8] text-[#0D808B] border border-[#A8B3A0]/70 hover:bg-[#E6DDCD] transition-colors">Rodilla</button>
+        </div>
+      </div>
+
+      <!-- Trust Badges -->
+      <div class="mt-14 pt-10 border-t border-[#E9E1D3] grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto text-left">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-[#19B8C5]/12 border border-[#A8B3A0]/70 flex items-center justify-center text-[#0D808B] shrink-0 font-semibold">✓</div>
+          <div>
+            <h4 class="text-xs font-semibold text-[#5B554D] uppercase tracking-wider">Terapeutas de Amplia Trayectoria</h4>
+            <p class="text-[11px] text-[#766F65]">Formados en la cuna de las técnicas ancestrales</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-[#19B8C5]/12 border border-[#A8B3A0]/70 flex items-center justify-center text-[#0D808B] shrink-0 font-semibold">✓</div>
+          <div>
+            <h4 class="text-xs font-semibold text-[#5B554D] uppercase tracking-wider">Causa Raíz</h4>
+            <p class="text-[11px] text-[#766F65]">Sin fármacos adictivos</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-[#19B8C5]/12 border border-[#A8B3A0]/70 flex items-center justify-center text-[#0D808B] shrink-0 font-semibold">✓</div>
+          <div>
+            <h4 class="text-xs font-semibold text-[#5B554D] uppercase tracking-wider">Presencial & Online</h4>
+            <p class="text-[11px] text-[#766F65]">Evaluaciones a tu medida</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-[#19B8C5]/12 border border-[#A8B3A0]/70 flex items-center justify-center text-[#0D808B] shrink-0 font-semibold">✓</div>
+          <div>
+            <h4 class="text-xs font-semibold text-[#5B554D] uppercase tracking-wider">+1,800 Pacientes</h4>
+            <p class="text-[11px] text-[#766F65]">Calificación 4.9/5 estrellas</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BODY MAP SECTION -->
+  <section id="mapa-cuerpo" class="py-16 sm:py-20 bg-[#F7F4EE] border-b border-[#E4DCCD]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <div class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#EDE5D8] text-[#66725F] border border-[#A8B3A0]/70 text-xs font-semibold uppercase tracking-wider mb-3">
+          Explorador Anatómico Interactivo
+        </div>
+        <h2 class="text-4xl sm:text-5xl font-semibold text-[#5B554D] tracking-tight font-display">
+          Selecciona la zona donde sientes la molestia
+        </h2>
+        <p class="text-base text-[#6E675E] mt-3 font-sans text-[15px]">
+          Toca cualquier parte del cuerpo para filtrar de inmediato las soluciones clínicas diseñadas por <strong class="text-[#5B554D]">mejorame.org</strong>.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-4xl mx-auto" id="body-map-buttons">
+        <button onclick="selectBodyZone('all')" class="body-zone-btn active p-3.5 rounded-xl border border-[#19B8C5] bg-[#EDE5D8] text-[#66725F] font-semibold text-xs flex items-center justify-center gap-2 transition-all">
+          <span>✨ Mostrar Todo</span>
+        </button>
+        <button onclick="selectBodyZone('espalda-baja')" class="body-zone-btn p-3.5 rounded-xl border border-[#D8CBB9] bg-[#FDFBF7] text-[#6E675E] hover:border-[#19B8C5]/55 font-semibold text-xs flex items-center justify-center gap-2 transition-all">
+          <span>🦴 Espalda Baja / Lumbar</span>
+        </button>
+        <button onclick="selectBodyZone('cuello')" class="body-zone-btn p-3.5 rounded-xl border border-[#D8CBB9] bg-[#FDFBF7] text-[#6E675E] hover:border-[#19B8C5]/55 font-semibold text-xs flex items-center justify-center gap-2 transition-all">
+          <span>💆 Cuello & Hombros</span>
+        </button>
+        <button onclick="selectBodyZone('nervio-ciatico')" class="body-zone-btn p-3.5 rounded-xl border border-[#D8CBB9] bg-[#FDFBF7] text-[#6E675E] hover:border-[#19B8C5]/55 font-semibold text-xs flex items-center justify-center gap-2 transition-all">
+          <span>⚡ Nervio Ciático</span>
+        </button>
+        <button onclick="selectBodyZone('rodilla')" class="body-zone-btn p-3.5 rounded-xl border border-[#D8CBB9] bg-[#FDFBF7] text-[#6E675E] hover:border-[#19B8C5]/55 font-semibold text-xs flex items-center justify-center gap-2 transition-all">
+          <span>🦵 Rodilla & Piernas</span>
+        </button>
+        <button onclick="selectBodyZone('cabeza')" class="body-zone-btn p-3.5 rounded-xl border border-[#D8CBB9] bg-[#FDFBF7] text-[#6E675E] hover:border-[#19B8C5]/55 font-semibold text-xs flex items-center justify-center gap-2 transition-all">
+          <span>🧠 Cabeza / Cefaleas</span>
+        </button>
+        <button onclick="selectBodyZone('muneca')" class="body-zone-btn p-3.5 rounded-xl border border-[#D8CBB9] bg-[#FDFBF7] text-[#6E675E] hover:border-[#19B8C5]/55 font-semibold text-xs flex items-center justify-center gap-2 transition-all">
+          <span>✋ Muñeca & Manos</span>
+        </button>
+        <button onclick="selectBodyZone('pie')" class="body-zone-btn p-3.5 rounded-xl border border-[#D8CBB9] bg-[#FDFBF7] text-[#6E675E] hover:border-[#19B8C5]/55 font-semibold text-xs flex items-center justify-center gap-2 transition-all">
+          <span>🦶 Planta del Pie / Talón</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAIN CATALOG -->
+  <section id="dolores-grid" class="py-16 sm:py-24 bg-[#F1EBE0]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-6 border-b border-[#E4DCCD]">
+        <div>
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F5F0E6] text-[#0D808B] border border-[#A8B3A0]/70 text-xs font-semibold uppercase tracking-wider mb-2">
+            Catálogo Clínico
+          </div>
+          <h2 class="text-4xl sm:text-5xl font-semibold text-[#5B554D] tracking-tight font-display">
+            Directorio de Dolores Frecuentes
+          </h2>
+          <p class="text-sm text-[#6E675E] mt-1 font-sans text-[14px]">
+            Haz clic en tu motivo de consulta para conocer el tratamiento específico y contactar a un terapeuta.
+          </p>
+        </div>
+        <div class="mt-4 md:mt-0 text-xs font-semibold text-[#766F65]" id="results-count">
+          Mostrando 8 afecciones tratadas
+        </div>
+      </div>
+
+      <!-- Grid Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="cards-container"></div>
+    </div>
+  </section>
+
+  <!-- PAIN WIZARD -->
+  <section id="evaluador-dolor" class="py-16 sm:py-24 bg-[#F7F4EE] border-t border-b border-[#E4DCCD]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <div class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#EDE5D8] text-[#66725F] border border-[#A8B3A0]/70 text-xs font-semibold uppercase tracking-wider mb-3 shadow-sm">
+          Orientación en 3 Minutos
+        </div>
+        <h2 class="text-4xl sm:text-5xl font-semibold text-[#5B554D] tracking-tight font-display">
+          Evaluador Rápido de tu Dolor
+        </h2>
+        <p class="text-base text-[#6E675E] mt-2 font-sans text-[15px]">
+          Responde 3 preguntas clave y nuestro algoritmo te recomendará el especialista y enfoque idóneo.
+        </p>
+      </div>
+
+      <div class="bg-[#FDFBF7] border border-[#E1D8C7] rounded-3xl p-6 sm:p-10 shadow-xl">
+        <div class="flex items-center justify-between mb-8 pb-6 border-b border-[#E4DCCD]">
+          <div class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-full bg-[#E0005A] text-white font-semibold text-sm flex items-center justify-center" id="wizard-step-num">1</span>
+            <div>
+              <p class="text-xs uppercase tracking-wider text-[#766F65] font-semibold">Paso <span id="step-count">1</span> de 3</p>
+              <h4 class="text-base font-semibold text-[#5B554D] font-sans" id="wizard-step-title">¿Dónde se localiza tu molestia principal?</h4>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 1 -->
+        <div id="step-1" class="space-y-4">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <button onclick="setWizardZone('espalda-baja', 'Espalda baja (Lumbar)')" class="p-4 rounded-xl border border-[#D8CBB9] bg-[#F5F0E6] hover:border-[#19B8C5] hover:bg-[#EDE5D8] text-left text-sm font-semibold text-[#5B554D] transition-all flex items-center justify-between">
+              <span>🦴 Espalda baja (Lumbar)</span>
+              <span class="text-xs text-[#0D808B]">Elegir →</span>
+            </button>
+            <button onclick="setWizardZone('cuello-hombros', 'Cuello y hombros (Cervical)')" class="p-4 rounded-xl border border-[#D8CBB9] bg-[#F5F0E6] hover:border-[#19B8C5] hover:bg-[#EDE5D8] text-left text-sm font-semibold text-[#5B554D] transition-all flex items-center justify-between">
+              <span>💆 Cuello y hombros</span>
+              <span class="text-xs text-[#0D808B]">Elegir →</span>
+            </button>
+            <button onclick="setWizardZone('nervio-ciatico', 'Ciática / Dolor que baja a pierna')" class="p-4 rounded-xl border border-[#D8CBB9] bg-[#F5F0E6] hover:border-[#19B8C5] hover:bg-[#EDE5D8] text-left text-sm font-semibold text-[#5B554D] transition-all flex items-center justify-between">
+              <span>⚡ Ciática / Glúteo y pierna</span>
+              <span class="text-xs text-[#0D808B]">Elegir →</span>
+            </button>
+            <button onclick="setWizardZone('rodilla-articulacion', 'Rodilla o articulaciones')" class="p-4 rounded-xl border border-[#D8CBB9] bg-[#F5F0E6] hover:border-[#19B8C5] hover:bg-[#EDE5D8] text-left text-sm font-semibold text-[#5B554D] transition-all flex items-center justify-between">
+              <span>🦵 Rodilla / Articulaciones</span>
+              <span class="text-xs text-[#0D808B]">Elegir →</span>
+            </button>
+            <button onclick="setWizardZone('cabeza-migrana', 'Dolor de cabeza / Tensión sienes')" class="p-4 rounded-xl border border-[#D8CBB9] bg-[#F5F0E6] hover:border-[#19B8C5] hover:bg-[#EDE5D8] text-left text-sm font-semibold text-[#5B554D] transition-all flex items-center justify-between">
+              <span>🧠 Cabeza / Cefalea tensional</span>
+              <span class="text-xs text-[#0D808B]">Elegir →</span>
+            </button>
+            <button onclick="setWizardZone('pie-fascitis', 'Planta del pie / Talón')" class="p-4 rounded-xl border border-[#D8CBB9] bg-[#F5F0E6] hover:border-[#19B8C5] hover:bg-[#EDE5D8] text-left text-sm font-semibold text-[#5B554D] transition-all flex items-center justify-between">
+              <span>🦶 Planta del pie / Talón</span>
+              <span class="text-xs text-[#0D808B]">Elegir →</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div id="step-2" class="hidden space-y-6">
+          <div>
+            <label class="block text-sm font-semibold text-[#5B554D] mb-2">¿Cuánto tiempo llevas con este dolor?</label>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              <button onclick="setWizardDuration('< 1 semana')" class="dur-btn p-3 rounded-xl border border-[#D8CBB9] bg-[#F5F0E6] text-xs font-semibold text-[#6E675E] hover:border-[#19B8C5]">Menos de 1 semana</button>
+              <button onclick="setWizardDuration('1 a 4 semanas')" class="dur-btn p-3 rounded-xl border border-[#D8CBB9] bg-[#F5F0E6] text-xs font-semibold text-[#6E675E] hover:border-[#19B8C5]">1 a 4 semanas</button>
+              <button onclick="setWizardDuration('1 a 6 meses')" class="dur-btn p-3 rounded-xl border border-[#D8CBB9] bg-[#F5F0E6] text-xs font-semibold text-[#6E675E] hover:border-[#19B8C5]">1 a 6 meses</button>
+              <button onclick="setWizardDuration('> 6 meses')" class="dur-btn p-3 rounded-xl border border-[#D8CBB9] bg-[#F5F0E6] text-xs font-semibold text-[#6E675E] hover:border-[#19B8C5]">Más de 6 meses</button>
+            </div>
+          </div>
+
+          <div>
+            <div class="flex justify-between items-center mb-2">
+              <label class="text-sm font-semibold text-[#5B554D]">Intensidad del dolor:</label>
+              <span class="text-sm font-semibold text-[#0D808B]" id="intensity-val">6/10 (Moderado a Intenso)</span>
+            </div>
+            <input type="range" min="1" max="10" value="6" id="wizard-intensity" class="w-full accent-[#19B8C5]" oninput="updateIntensity(this.value)" />
+            <div class="flex justify-between text-[11px] text-[#7E766B] mt-1">
+              <span>1 - Leve molestia</span>
+              <span>5 - Molestia limitante</span>
+              <span>10 - Dolor insoportable</span>
+            </div>
+          </div>
+
+          <div class="flex justify-between pt-4">
+            <button onclick="goToStep(1)" class="px-4 py-2 rounded-xl border border-[#D8CBB9] text-xs text-[#6E675E] hover:bg-[#EDE5D8]">← Volver</button>
+            <button onclick="goToStep(3)" class="px-6 py-2.5 rounded-xl bg-[#E0005A] text-white font-semibold text-xs hover:brightness-110">Ver Diagnóstico Sugerido →</button>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div id="step-3" class="hidden space-y-6">
+          <div class="bg-[#F5F0E6] border border-[#19B8C5]/45 rounded-2xl p-6 text-left space-y-4">
+            <div class="flex items-center gap-2 text-xs font-semibold text-[#66725F] uppercase tracking-wider">
+              <span>✓ Recomendación Clínica Personalizada</span>
+            </div>
+            <h3 class="text-3xl font-semibold text-[#5B554D] font-display" id="res-pain-name">Espalda Baja / Zona Lumbar</h3>
+            <p class="text-sm text-[#6E675E] leading-relaxed font-sans text-[14px]" id="res-plan">
+              Se recomienda descompresión vertebral activa y liberación miofascial lumbar para descomprimir vértebras y devolver la movilidad al tronco.
+            </p>
+            <div class="bg-[#FDFBF7] rounded-xl p-4 border border-[#E4DCCD] grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-[#5B554D]">
+              <div><strong>Especialista sugerido:</strong> Terapeuta Especialista en Columna</div>
+              <div><strong>Modalidad óptima:</strong> Presencial con opción de seguimiento remoto</div>
+            </div>
+          </div>
+
+          <div class="flex flex-col sm:flex-row gap-3 pt-2">
+            <a id="wizard-wa-btn" href="#" target="_blank" class="flex-1 py-3 px-4 rounded-xl bg-gradient-to-r from-[#E0005A] to-[#B8004A] text-white font-semibold text-sm text-center shadow-lg shadow-[#E0005A]/25 flex items-center justify-center gap-2">
+              <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+              Consultar este caso por WhatsApp
+            </a>
+            <button onclick="openBookingModal()" class="py-3 px-5 rounded-xl border border-[#D8CBB9] bg-[#F5F0E6] text-[#5B554D] font-semibold text-xs hover:bg-[#EDE5D8]">
+              Agendar en Línea
+            </button>
+            <button onclick="goToStep(1)" class="py-3 px-4 rounded-xl text-xs text-[#7E766B] hover:text-[#48433D]">
+              Reiniciar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY MEJORAME -->
+  <section id="por-que-mejorame" class="py-16 sm:py-20 bg-[#F7F4EE] border-t border-[#E4DCCD]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <div class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#EDE5D8] text-[#66725F] border border-[#A8B3A0]/70 text-xs font-semibold uppercase tracking-wider mb-3 shadow-sm">
+          Filosofía & Compromiso
+        </div>
+        <h2 class="text-4xl sm:text-5xl font-semibold text-[#5B554D] tracking-tight font-display">
+          ¿Por qué contactar a <span class="gold-gradient-text">mejorame.org</span>?
+        </h2>
+        <p class="text-base text-[#6E675E] mt-3 font-sans text-[14.5px]">
+          A diferencia de los tratamientos tradicionales que solo recetan analgésicos para tapar el síntoma, nosotros trabajamos en el origen biomecánico y tensional de tu molestia.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-[#FDFBF7] rounded-2xl p-6 border border-[#E4DCCD] hover:border-[#19B8C5]/55 transition-all flex flex-col justify-between shadow-xl">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-[#19B8C5]/12 border border-[#A8B3A0]/70 flex items-center justify-center text-[#0D808B] mb-4 text-xl">🩺</div>
+            <h3 class="text-lg font-semibold text-[#5B554D] mb-1 font-sans">Tratamos la Causa Raíz</h3>
+            <p class="text-xs font-semibold text-[#0D808B] uppercase tracking-wider mb-2">No solo silenciamos síntomas</p>
+            <p class="text-xs sm:text-sm text-[#6E675E] leading-relaxed font-sans text-[13px]">Buscamos el origen mecánico o tensional de tu dolor para evitar que regrese.</p>
+          </div>
+          <div class="mt-6 pt-3 border-t border-[#E4DCCD] text-[11px] font-semibold text-[#66725F]">✓ Estándar Mejorame.org</div>
+        </div>
+
+        <div class="bg-[#FDFBF7] rounded-2xl p-6 border border-[#E4DCCD] hover:border-[#19B8C5]/55 transition-all flex flex-col justify-between shadow-xl">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-[#19B8C5]/12 border border-[#A8B3A0]/70 flex items-center justify-center text-[#0D808B] mb-4 text-xl">👤</div>
+            <h3 class="text-lg font-semibold text-[#5B554D] mb-1 font-sans">Especialistas Empáticos</h3>
+            <p class="text-xs font-semibold text-[#0D808B] uppercase tracking-wider mb-2">Atención 100% personalizada</p>
+            <p class="text-xs sm:text-sm text-[#6E675E] leading-relaxed font-sans text-[13px]">Terapeutas de amplia trayectoria, formados en la cuna de las técnicas ancestrales, cuyo objetivo es encontrar el verdadero origen de tus molestias y eliminarlas.</p>
+          </div>
+          <div class="mt-6 pt-3 border-t border-[#E4DCCD] text-[11px] font-semibold text-[#66725F]">✓ Estándar Mejorame.org</div>
+        </div>
+
+        <div class="bg-[#FDFBF7] rounded-2xl p-6 border border-[#E4DCCD] hover:border-[#19B8C5]/55 transition-all flex flex-col justify-between shadow-xl">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-[#19B8C5]/12 border border-[#A8B3A0]/70 flex items-center justify-center text-[#0D808B] mb-4 text-xl">🛡️</div>
+            <h3 class="text-lg font-semibold text-[#5B554D] mb-1 font-sans">Sin Medicamentos Abusivos</h3>
+            <p class="text-xs font-semibold text-[#0D808B] uppercase tracking-wider mb-2">Terapia activa y manual</p>
+            <p class="text-xs sm:text-sm text-[#6E675E] leading-relaxed font-sans text-[13px]">Priorizamos técnicas comprobadas de movilidad, descompresión y fortalecimiento.</p>
+          </div>
+          <div class="mt-6 pt-3 border-t border-[#E4DCCD] text-[11px] font-semibold text-[#66725F]">✓ Estándar Mejorame.org</div>
+        </div>
+
+        <div class="bg-[#FDFBF7] rounded-2xl p-6 border border-[#E4DCCD] hover:border-[#19B8C5]/55 transition-all flex flex-col justify-between shadow-xl">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-[#19B8C5]/12 border border-[#A8B3A0]/70 flex items-center justify-center text-[#0D808B] mb-4 text-xl">🔄</div>
+            <h3 class="text-lg font-semibold text-[#5B554D] mb-1 font-sans">Acompañamiento Continuo</h3>
+            <p class="text-xs font-semibold text-[#0D808B] uppercase tracking-wider mb-2">Estamos contigo en cada paso</p>
+            <p class="text-xs sm:text-sm text-[#6E675E] leading-relaxed font-sans text-[13px]">Seguimiento por WhatsApp y pautas de prevención para tu rutina diaria.</p>
+          </div>
+          <div class="mt-6 pt-3 border-t border-[#E4DCCD] text-[11px] font-semibold text-[#66725F]">✓ Estándar Mejorame.org</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonios" class="py-16 sm:py-20 bg-[#F1EBE0] border-t border-[#E4DCCD]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <div class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#EDE5D8] text-[#66725F] border border-[#A8B3A0]/70 text-xs font-semibold uppercase tracking-wider mb-2.5 shadow-sm">
+          Historias Reales de Alivio
+        </div>
+        <h2 class="text-4xl sm:text-5xl font-semibold text-[#5B554D] tracking-tight font-display">
+          Llegaron diciendo <span class="gold-gradient-text">"me duele esto"</span> y hoy viven plenos
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-[#FDFBF7] rounded-2xl p-6 border border-[#E4DCCD] shadow-xl flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-1 mb-3 text-[#E0005A]">★★★★★ <span class="text-xs font-semibold text-[#5B554D] ml-2">5.0</span></div>
+            <div class="bg-[#FBEAF1] border border-[#E0005A]/25 text-[#B8004A] text-xs px-3 py-1.5 rounded-xl font-semibold mb-4 inline-block">"Me dolía el cuello y la cabeza a diario por 8h de pantalla"</div>
+            <p class="text-xs sm:text-sm text-[#6E675E] italic leading-relaxed mb-6 font-serif-luxury text-[19px]">
+              "Probé pastillas y masajes tradicionales que solo duraban dos días. En Mejorame.org identificaron el origen postural y en 4 sesiones el dolor desapareció."
+            </p>
+          </div>
+          <div class="pt-4 border-t border-[#E4DCCD] flex items-center justify-between">
+            <div>
+              <h4 class="font-semibold text-[#5B554D] font-sans text-sm">Carolina Méndez</h4>
+              <p class="text-[#7E766B] text-[11px]">Diseñadora UX</p>
+            </div>
+            <span class="text-[11px] font-semibold text-[#0D808B] bg-[#EDE5D8] border border-[#D8CBB9] px-2 py-0.5 rounded">Tratada en 4 sem</span>
+          </div>
+        </div>
+
+        <div class="bg-[#FDFBF7] rounded-2xl p-6 border border-[#E4DCCD] shadow-xl flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-1 mb-3 text-[#E0005A]">★★★★★ <span class="text-xs font-semibold text-[#5B554D] ml-2">5.0</span></div>
+            <div class="bg-[#FBEAF1] border border-[#E0005A]/25 text-[#B8004A] text-xs px-3 py-1.5 rounded-xl font-semibold mb-4 inline-block">"Me dolía la espalda baja al levantarme"</div>
+            <p class="text-xs sm:text-sm text-[#6E675E] italic leading-relaxed mb-6 font-serif-luxury text-[19px]">
+              "El equipo de www.mejorame.org descomprimió mi columna lumbar y me enseñó ejercicios que cambiaron mi rutina por completo."
+            </p>
+          </div>
+          <div class="pt-4 border-t border-[#E4DCCD] flex items-center justify-between">
+            <div>
+              <h4 class="font-semibold text-[#5B554D] font-sans text-sm">Rodrigo Valenzuela</h4>
+              <p class="text-[#7E766B] text-[11px]">Contador Auditor</p>
+            </div>
+            <span class="text-[11px] font-semibold text-[#0D808B] bg-[#EDE5D8] border border-[#D8CBB9] px-2 py-0.5 rounded">Tratado en 6 ses</span>
+          </div>
+        </div>
+
+        <div class="bg-[#FDFBF7] rounded-2xl p-6 border border-[#E4DCCD] shadow-xl flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-1 mb-3 text-[#E0005A]">★★★★★ <span class="text-xs font-semibold text-[#5B554D] ml-2">5.0</span></div>
+            <div class="bg-[#FBEAF1] border border-[#E0005A]/25 text-[#B8004A] text-xs px-3 py-1.5 rounded-xl font-semibold mb-4 inline-block">"Me dolía la rodilla y el talón al estar de pie"</div>
+            <p class="text-xs sm:text-sm text-[#6E675E] italic leading-relaxed mb-6 font-serif-luxury text-[19px]">
+              "Estar de pie era una tortura. La fascitis plantar remitió por completo tras la terapia miofascial y las pautas de pisada."
+            </p>
+          </div>
+          <div class="pt-4 border-t border-[#E4DCCD] flex items-center justify-between">
+            <div>
+              <h4 class="font-semibold text-[#5B554D] font-sans text-sm">Andrea Morales</h4>
+              <p class="text-[#7E766B] text-[11px]">Profesora</p>
+            </div>
+            <span class="text-[11px] font-semibold text-[#0D808B] bg-[#EDE5D8] border border-[#D8CBB9] px-2 py-0.5 rounded">Tratada en 5 sem</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#5B554D] text-[#E6DDCD] pt-16 pb-28 border-t border-[#D8CBB9]/30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 pb-12 border-b border-[#F7F4EE]/15">
+        <div class="lg:col-span-4 space-y-4">
+          <div class="flex items-center gap-2">
+            <div class="w-10 h-10 rounded-xl bg-[#19B8C5]/20 border border-[#8ED3DA]/40 flex items-center justify-center text-[#8ED3DA] font-semibold text-lg">M</div>
+            <span class="text-3xl font-semibold text-[#F7F4EE] tracking-tight font-display">
+              mejorame<span class="text-[#8ED3DA]">.org</span>
+            </span>
+          </div>
+          <p class="text-xs sm:text-sm text-[#E6DDCD] leading-relaxed max-w-sm font-sans text-[13px]">
+            Centro especializado en evaluación, alivio y tratamiento de dolores musculoesqueléticos, posturales y tensionales.
+          </p>
+          <div class="pt-2 flex items-center gap-3">
+            <a href="https://wa.me/56981301319?text=Hola%20www.mejorame.org" target="_blank" class="px-3.5 py-2 rounded-xl bg-[#F7F4EE]/10 text-[#F7F4EE] border border-[#F7F4EE]/30 hover:bg-[#F7F4EE]/20 text-xs font-semibold">
+              WhatsApp Oficial
+            </a>
+            <button onclick="openBookingModal()" class="px-3.5 py-2 rounded-xl bg-[#F7F4EE]/5 hover:bg-[#F7F4EE]/15 text-[#F7F4EE] border border-[#F7F4EE]/25 text-xs font-semibold">
+              Pedir Evaluación
+            </button>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 space-y-3">
+          <h4 class="text-xs font-semibold text-[#F7F4EE] uppercase tracking-wider font-sans">Directorio de Dolores Frecuentes</h4>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+            <a href="#dolores-grid" onclick="quickFilter('espalda-baja')" class="text-[#E6DDCD] hover:text-[#8ED3DA] py-1">• Espalda baja / Lumbar</a>
+            <a href="#dolores-grid" onclick="quickFilter('cuello')" class="text-[#E6DDCD] hover:text-[#8ED3DA] py-1">• Cuello y hombros</a>
+            <a href="#dolores-grid" onclick="quickFilter('rodilla')" class="text-[#E6DDCD] hover:text-[#8ED3DA] py-1">• Rodilla y articulaciones</a>
+            <a href="#dolores-grid" onclick="quickFilter('cabeza')" class="text-[#E6DDCD] hover:text-[#8ED3DA] py-1">• Cabeza / Cefaleas</a>
+            <a href="#dolores-grid" onclick="quickFilter('muneca')" class="text-[#E6DDCD] hover:text-[#8ED3DA] py-1">• Muñeca / Túnel carpiano</a>
+            <a href="#dolores-grid" onclick="quickFilter('pie')" class="text-[#E6DDCD] hover:text-[#8ED3DA] py-1">• Planta del pie / Fascitis</a>
+            <a href="#dolores-grid" onclick="quickFilter('nervio-ciatico')" class="text-[#E6DDCD] hover:text-[#8ED3DA] py-1">• Nervio ciático / Pierna</a>
+            <a href="#dolores-grid" onclick="quickFilter('estres-pecho')" class="text-[#E6DDCD] hover:text-[#8ED3DA] py-1">• Opresión por estrés</a>
+          </div>
+        </div>
+
+        <div class="lg:col-span-3 space-y-3 text-xs">
+          <h4 class="text-xs font-semibold text-[#F7F4EE] uppercase tracking-wider font-sans">Contacto & Atención</h4>
+          <ul class="space-y-2 text-[#E6DDCD]">
+            <li>📍 Rafael Cañas 47, Providencia, a 500m del Metro Salvador, Santiago</li>
+            <li>💬 Contacto y agendamiento por WhatsApp</li>
+            <li>✉️ contacto@mejorame.org</li>
+            <li class="pt-1">
+              <span class="block font-semibold text-[#F7F4EE]">Horarios:</span>
+              <span>Lun a Vie: 08:30 - 20:30 hrs</span><br />
+              <span>Sáb: 09:00 - 14:00 hrs</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-[#F7F4EE]/15 text-xs text-[#CFC6B6]">
+        <p>© 2026 www.mejorame.org. Todos los derechos reservados.</p>
+        <p class="text-[#CFC6B6]">Alivio y bienestar integral de precisión.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING ACTION BAR -->
+  <aside class="fixed bottom-4 left-4 right-4 sm:left-auto sm:right-6 z-40 max-w-lg">
+    <div class="bg-[#FDFBF7]/95 backdrop-blur-md text-[#5B554D] p-3 rounded-2xl shadow-xl border border-[#A8B3A0]/70 flex items-center justify-between gap-2.5">
+      <a href="#dolores-grid" class="text-left flex items-center gap-2 hover:text-[#66725F] transition-colors group px-1">
+        <div class="w-8 h-8 rounded-lg bg-[#19B8C5]/12 border border-[#A8B3A0]/70 text-[#0D808B] flex items-center justify-center shrink-0">⚡</div>
+        <div class="hidden xs:block">
+          <p class="text-[10px] uppercase font-semibold text-[#0D808B]">¿Tienes dolor?</p>
+          <p class="text-xs font-semibold text-[#5B554D] leading-tight font-sans">Buscar mi dolor</p>
+        </div>
+      </a>
+      <div class="flex items-center gap-2">
+        <a href="https://wa.me/56981301319?text=Hola%20www.mejorame.org%2C%20tengo%20un%20dolor" target="_blank" class="px-3 py-2 rounded-xl border border-[#19B8C5]/45 bg-[#EDE5D8] hover:bg-[#E6DDCD] text-[#0D808B] font-semibold text-xs flex items-center gap-1.5 transition-all">
+          WhatsApp
+        </a>
+        <a href="https://ehw.setmore.com/carolina/service/da90e7e1-5045-4b67-8165-39a51cf4cf1b" target="_blank" rel="noopener" class="px-3.5 py-2 rounded-xl bg-gradient-to-r from-[#E0005A] to-[#B8004A] text-white font-semibold text-xs flex items-center gap-1.5 shadow-lg shadow-[#E0005A]/25">
+          Agendar Cita
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- BOOKING MODAL -->
+  <div id="booking-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-[#3C3731]/70 backdrop-blur-md overflow-y-auto">
+    <div class="relative w-full max-w-2xl bg-[#FDFBF7] rounded-3xl shadow-xl border border-[#E1D8C7] overflow-hidden my-8">
+      <div class="bg-gradient-to-r from-[#FDFBF7] via-[#EDE5D8] to-[#FDFBF7] border-b border-[#E1D8C7] px-6 py-5 text-[#5B554D] flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-[#19B8C5]/12 border border-[#A8B3A0]/70 flex items-center justify-center text-[#0D808B]">📅</div>
+          <div>
+            <h3 class="text-xl sm:text-2xl font-semibold font-display text-[#5B554D]">Consulta y Evaluación Mejorame.org</h3>
+            <p class="text-xs text-[#6E675E]">Orientación directa para aliviar tu dolor</p>
+          </div>
+        </div>
+        <button onclick="closeBookingModal()" class="p-1.5 rounded-lg text-[#6E675E] hover:text-[#48433D] hover:bg-[#5B554D]/10" aria-label="Cerrar modal">✕</button>
+      </div>
+
+      <form id="booking-form" onsubmit="handleFormSubmit(event)" class="p-6 space-y-4 max-h-[80vh] overflow-y-auto custom-scrollbar">
+        <div class="space-y-1.5">
+          <label class="text-xs font-semibold text-[#5B554D] uppercase tracking-wider block">¿Qué dolor deseas consultar?</label>
+          <select id="form-pain" class="w-full py-2.5 px-3 rounded-xl border border-[#D8CBB9] bg-[#F5F0E6] text-[#5B554D] text-sm font-semibold focus:outline-none focus:border-[#19B8C5]">
+            <option value="espalda-baja">Me duele la espalda baja (zona lumbar)</option>
+            <option value="cuello-hombros">Me duele el cuello y los hombros (tensión cervical)</option>
+            <option value="rodilla-articulacion">Me duele la rodilla al subir escaleras o hacer deporte</option>
+            <option value="cabeza-migrana">Me duele la cabeza y siento pesadez constante</option>
+            <option value="muneca-mano">Me duele la muñeca y siento hormigueo en la mano</option>
+            <option value="pie-fascitis">Me duele la planta del pie al dar los primeros pasos</option>
+            <option value="nervio-ciatico">Me duele el glúteo y baja un corrientazo (Ciática)</option>
+            <option value="estres-pecho-postura">Me duele el pecho por estrés y respiración corta</option>
+            <option value="otro">Otro dolor o molestia no listada</option>
+          </select>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-[#F5F0E6] p-3.5 rounded-2xl border border-[#E1D8C7]">
+          <div>
+            <label class="text-[11px] font-semibold text-[#6E675E] block mb-1">¿Cuánto tiempo llevas con el dolor?</label>
+            <select id="form-duration" class="w-full py-1.5 px-2.5 rounded-lg border border-[#D8CBB9] text-xs text-[#5B554D] bg-[#FDFBF7]">
+              <option>Menos de 1 semana</option>
+              <option>1 a 4 semanas</option>
+              <option>1 a 6 meses</option>
+              <option>Más de 6 meses (crónico)</option>
+            </select>
+          </div>
+          <div>
+            <label class="text-[11px] font-semibold text-[#6E675E] block mb-1">Intensidad del dolor (1 al 10):</label>
+            <input type="range" min="1" max="10" value="7" id="form-intensity" class="w-full accent-[#19B8C5]" />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="text-xs font-semibold text-[#5B554D] block mb-1">Nombre Completo *</label>
+            <input type="text" id="form-name" required placeholder="Ej: Marcelo Rojas" class="w-full py-2 px-3 rounded-xl border border-[#D8CBB9] bg-[#F5F0E6] text-[#5B554D] placeholder-[#9A9186] text-sm focus:outline-none focus:border-[#19B8C5]" />
+          </div>
+          <div>
+            <label class="text-xs font-semibold text-[#5B554D] block mb-1">Teléfono / WhatsApp *</label>
+            <input type="tel" id="form-phone" required placeholder="+56 9 1234 5678" class="w-full py-2 px-3 rounded-xl border border-[#D8CBB9] bg-[#F5F0E6] text-[#5B554D] placeholder-[#9A9186] text-sm focus:outline-none focus:border-[#19B8C5]" />
+          </div>
+        </div>
+
+        <div>
+          <label class="text-xs font-semibold text-[#5B554D] block mb-1">Cuéntanos brevemente qué sientes</label>
+          <textarea id="form-notes" rows="2" placeholder="Ej: Empezó después de levantar peso o pasar muchas horas en el computador..." class="w-full py-2 px-3 rounded-xl border border-[#D8CBB9] bg-[#F5F0E6] text-[#5B554D] placeholder-[#9A9186] text-sm focus:outline-none focus:border-[#19B8C5]"></textarea>
+        </div>
+
+        <input type="text" id="form-web" name="web" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" />
+        <p id="form-error" class="hidden text-xs font-semibold text-[#B8004A] bg-[#FBEAF1] border border-[#E0005A]/25 rounded-xl px-3 py-2"></p>
+
+        <div class="pt-2 flex flex-col sm:flex-row gap-3">
+          <button type="submit" id="form-submit" class="flex-1 py-3 px-4 rounded-xl bg-gradient-to-r from-[#E0005A] to-[#B8004A] text-white font-semibold text-sm flex items-center justify-center gap-2 shadow-lg shadow-[#E0005A]/25">
+            Confirmar Solicitud de Evaluación
+          </button>
+          <button type="button" onclick="sendViaWhatsAppDirect()" class="py-3 px-4 rounded-xl border border-[#19B8C5]/45 bg-[#F5F0E6] text-[#0D808B] font-semibold text-sm">
+            Enviar por WhatsApp
+          </button>
+        </div>
+      </form>
+
+      <div id="modal-success" class="hidden p-8 text-center space-y-6">
+        <div class="w-16 h-16 rounded-full bg-[#19B8C5]/15 border border-[#19B8C5]/45 text-[#0D808B] flex items-center justify-center mx-auto text-2xl font-semibold">✓</div>
+        <div>
+          <h4 class="text-3xl font-semibold text-[#5B554D] font-display">¡Solicitud Registrada con Éxito!</h4>
+          <p class="text-sm text-[#6E675E] mt-2 max-w-md mx-auto font-sans text-[14px]">
+            Un especialista de <strong class="text-[#0D808B]">mejorame.org</strong> revisará tu caso y te responderá a la brevedad. Te contactaremos al teléfono que indicaste para coordinar tu evaluación.
+          </p>
+        </div>
+        <div id="modal-success-summary" class="text-left bg-[#F5F0E6] border border-[#E1D8C7] rounded-xl p-4 text-xs text-[#5B554D] space-y-1 max-w-md mx-auto"></div>
+        <div class="flex justify-center gap-3">
+          <button onclick="closeBookingModal()" class="px-5 py-2.5 rounded-xl bg-[#F5F0E6] text-[#5B554D] border border-[#D8CBB9] text-sm">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Configuración del envío de solicitudes (la genera el panel; ver LEEME) -->
+  <script src="form-config.js"></script>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    const PAIN_DATA = [
+      {
+        id: 'espalda-baja',
+        painTitle: 'Me duele la espalda baja (zona lumbar)',
+        shortPain: 'Espalda baja / Lumbar',
+        bodyZone: 'espalda-baja',
+        category: 'Columna y Postura',
+        tagline: 'Pinchazos al levantarte, dolor sordo al estar sentado o rigidez constante al agacharte.',
+        symptoms: ['Dolor punzante o quemazón en zona lumbar', 'Dificultad para ponerte erguido', 'Tensión muscular hacia los glúteos'],
+        solution: 'Evaluamos la alineación de tu pelvis y columna para descomprimir vértebras lumbares, liberar contracturas y fortalecer tu faja natural.',
+        techniques: ['Descompresión vertebral guiada', 'Terapia manual ortopédica', 'Reeducación postural activa', 'Punción seca analgésica']
+      },
+      {
+        id: 'cuello-hombros',
+        painTitle: 'Me duele el cuello y los hombros (tensión cervical)',
+        shortPain: 'Cuello y hombros',
+        bodyZone: 'cuello',
+        category: 'Cervical y Cabeza',
+        tagline: 'Cuello rígido como piedra, hombros cargados de estrés y dolor al girar la cabeza.',
+        symptoms: ['Rigidez para mirar hacia los lados', 'Nudos y contracturas palpables en trapecios', 'Pesadez que sube a la nuca'],
+        solution: 'Desactivamos puntos gatillo del dolor punzante, restablecemos el rango de giro del cuello y ajustamos la ergonomía laboral.',
+        techniques: ['Liberación miofascial profunda', 'Tracción cervical suave', 'Corrección ergonómica', 'Movilidad articular activa']
+      },
+      {
+        id: 'rodilla-articulacion',
+        painTitle: 'Me duele la rodilla al subir escaleras o hacer deporte',
+        shortPain: 'Rodilla / Articulaciones',
+        bodyZone: 'rodilla',
+        category: 'Articulaciones y Deporte',
+        tagline: 'Crujidos, pinchazos al flexionar, o dolor después de salir a caminar o trotar.',
+        symptoms: ['Dolor agudo debajo de la rótula', 'Inflamación y calor tras actividad física', 'Sensación de inestabilidad'],
+        solution: 'Analizamos tu pisada y eje biomecánico para reducir la carga articular, fortalecer estabilizadores y devolverte al deporte.',
+        techniques: ['Neuromodulación funcional', 'Readaptación neuromuscular', 'Ejercicios excéntricos', 'Crioterapia y drenaje']
+      },
+      {
+        id: 'cabeza-migrana',
+        painTitle: 'Me duele la cabeza y siento pesadez constante',
+        shortPain: 'Cabeza / Cefalea tensional',
+        bodyZone: 'cabeza',
+        category: 'Cervical y Cabeza',
+        tagline: 'Presión en sienes, dolor en la frente o detrás de los ojos que no cede con analgésicos.',
+        symptoms: ['Sensación de banda elástica apretando', 'Sensibilidad a luz o ruido', 'Dolor sordo al final de la tarde'],
+        solution: 'Tratamos la mandíbula (ATM), base del cráneo y vértebras cervicales altas para desactivar el dolor reflejo craneal.',
+        techniques: ['Terapia manual de ATM', 'Descarga suboccipital', 'Regulación vagal', 'Reeducación postural']
+      },
+      {
+        id: 'muneca-mano',
+        painTitle: 'Me duele la muñeca y siento hormigueo en la mano',
+        shortPain: 'Muñeca / Túnel Carpiano',
+        bodyZone: 'muneca',
+        category: 'Extremidades y Trabajo',
+        tagline: 'Punzadas al teclear, usar el ratón o cargar peso, con adormecimiento en los dedos.',
+        symptoms: ['Hormigueo en pulgar, índice y medio', 'Pérdida de fuerza para abrir frascos', 'Dolor en la base del pulgar'],
+        solution: 'Liberamos el túnel del carpo mediante movilización neural, desinflamamos tendones y corregimos apoyos.',
+        techniques: ['Deslizamiento neurodinámico', 'Terapia manual articular', 'Vendaje neuromuscular', 'Pautas de teletrabajo']
+      },
+      {
+        id: 'pie-fascitis',
+        painTitle: 'Me duele la planta del pie al dar los primeros pasos',
+        shortPain: 'Planta del pie / Talón',
+        bodyZone: 'pie',
+        category: 'Extremidades y Trabajo',
+        tagline: 'Dolor como una aguja en el talón al levantarte de la cama por la mañana.',
+        symptoms: ['Pinchazo agudo en talón o arco', 'Rigidez matutina que cede al caminar', 'Tensión en gemelos y Aquiles'],
+        solution: 'Tratamos la fascia inflamada con terapia miofascial, liberamos el tendón de Aquiles y corregimos tus apoyos de pisada.',
+        techniques: ['Liberación miofascial plantar', 'Reeducación de marcha', 'Estiramientos específicos', 'Termoterapia combinada']
+      },
+      {
+        id: 'nervio-ciatico',
+        painTitle: 'Me duele el glúteo y baja un corrientazo por la pierna (Ciática)',
+        shortPain: 'Nervio Ciático / Pierna',
+        bodyZone: 'nervio-ciatico',
+        category: 'Columna y Postura',
+        tagline: 'Dolor punzante o quemazón que recorre desde la nalga hasta el muslo o pantorrilla.',
+        symptoms: ['Corrientazo o ardor por detrás del muslo', 'Pérdida de sensibilidad en el pie', 'Dificultad para dormir de lado'],
+        solution: 'Aliviamos la compresión mecánica sobre el nervio mediante maniobras indoloras y deslizamiento del nervio ciático.',
+        techniques: ['Descompresión y apertura foraminal', 'Neurodinamia ciática', 'Relajación de piramidal', 'Masoterapia analgésica']
+      },
+      {
+        id: 'estres-pecho-postura',
+        painTitle: 'Me duele el pecho por estrés y siento que no respiro hondo',
+        shortPain: 'Pecho / Opresión por estrés',
+        bodyZone: 'estres-pecho',
+        category: 'Bienestar y Tensión',
+        tagline: 'Nudo en el esternón, tensión entre las costillas y dificultad para llenar los pulmones por ansiedad.',
+        symptoms: ['Sensación de peso en el pecho', 'Respiración corta y superficial', 'Tensión entre escápulas'],
+        solution: 'Liberamos el diafragma bloqueado, expandimos la caja torácica y enseñamos respiración diafragmática profunda.',
+        techniques: ['Liberación manual de diafragma', 'Movilización torácica', 'Respiración guiada', 'Descarga neuromuscular']
+      }
+    ];
+
+    let currentZone = 'all';
+    let searchQuery = '';
+
+    function renderCards() {
+      const container = document.getElementById('cards-container');
+      const countEl = document.getElementById('results-count');
+      
+      const filtered = PAIN_DATA.filter(item => {
+        const matchesZone = (currentZone === 'all') || (item.bodyZone === currentZone);
+        const matchesSearch = searchQuery === '' || 
+          item.painTitle.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          item.shortPain.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          item.tagline.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          item.category.toLowerCase().includes(searchQuery.toLowerCase());
+        return matchesZone && matchesSearch;
+      });
+
+      countEl.innerText = `Mostrando ${filtered.length} afecciones tratadas`;
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div class="col-span-full py-16 text-center bg-[#FDFBF7] rounded-3xl border border-[#E4DCCD] p-8">
+            <p class="text-lg text-[#5B554D] font-semibold mb-2">No encontramos coincidencias para "${searchQuery}"</p>
+            <p class="text-sm text-[#6E675E] mb-6">Nuestros terapeutas pueden evaluar cualquier dolor musculoesquelético.</p>
+            <button onclick="openBookingModal()" class="px-6 py-3 rounded-xl bg-[#E0005A] text-white font-semibold text-sm">Consultar Caso Personalizado</button>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = filtered.map(item => `
+        <article class="bg-[#FDFBF7] rounded-3xl border border-[#E4DCCD] hover:border-[#19B8C5]/55 transition-all duration-300 flex flex-col justify-between overflow-hidden shadow-xl hover:shadow-xl">
+          <div class="p-6 sm:p-7 space-y-5">
+            <div class="flex items-center justify-between gap-2">
+              <span class="px-3 py-1 rounded-full bg-[#EDE5D8] text-[#66725F] border border-[#A8B3A0]/70 text-[11px] font-semibold uppercase tracking-wider">
+                ${item.category}
+              </span>
+              <span class="text-xs font-semibold text-[#766F65]">${item.shortPain}</span>
+            </div>
+
+            <div>
+              <h3 class="text-2xl sm:text-3xl font-semibold text-[#5B554D] leading-snug font-display">
+                ${item.painTitle}
+              </h3>
+              <p class="text-xs sm:text-sm text-[#6E675E] mt-2 italic font-serif-luxury text-[19px]">
+                "${item.tagline}"
+              </p>
+            </div>
+
+            <div class="bg-[#F5F0E6] p-4 rounded-2xl border border-[#E4DCCD] space-y-2">
+              <h4 class="text-[11px] font-semibold uppercase tracking-wider text-[#0D808B]">¿Qué podrías sentir?</h4>
+              <ul class="text-xs text-[#5B554D] space-y-1.5">
+                ${item.symptoms.map(s => `<li>• ${s}</li>`).join('')}
+              </ul>
+            </div>
+
+            <div class="space-y-2 text-xs">
+              <span class="font-semibold text-[#5B554D] block">Enfoque Terapéutico en Mejorame.org:</span>
+              <p class="text-[#6E675E] leading-relaxed font-sans text-[13px]">${item.solution}</p>
+              <div class="flex flex-wrap gap-1.5 pt-2">
+                ${item.techniques.map(t => `<span class="px-2.5 py-1 rounded-md bg-[#EDE5D8] text-[#66725F] text-[11px] border border-[#D8CBB9]">${t}</span>`).join('')}
+              </div>
+            </div>
+          </div>
+
+          <div class="p-6 border-t border-[#E9E1D3] bg-[#F5F0E6] flex flex-col sm:flex-row gap-2 mt-4">
+            <a href="https://wa.me/56981301319?text=Hola%20Mejorame.org%2C%20tengo%20consulta%20por%3A%20${encodeURIComponent(item.painTitle)}" target="_blank" class="flex-1 py-3 px-3 rounded-xl border border-[#19B8C5]/45 bg-[#EDE5D8] text-[#0D808B] hover:bg-[#E6DDCD] font-semibold text-xs flex items-center justify-center gap-1.5 transition-colors">
+              Consultar WhatsApp
+            </a>
+            <button type="button" onclick="openBookingModal('${item.id}')" class="flex-1 py-3 px-3 rounded-xl bg-gradient-to-r from-[#E0005A] to-[#B8004A] hover:from-[#EE2A78] hover:to-[#C8004F] text-white font-semibold text-xs flex items-center justify-center gap-1.5 shadow-md">
+              Agendar Evaluación
+            </button>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    function selectBodyZone(zone) {
+      currentZone = zone;
+      document.querySelectorAll('.body-zone-btn').forEach(btn => {
+        btn.classList.remove('border-[#19B8C5]', 'text-[#66725F]', 'bg-[#EDE5D8]');
+        btn.classList.add('border-[#D8CBB9]', 'text-[#6E675E]', 'bg-[#FDFBF7]');
+      });
+      if (window.event && window.event.currentTarget) {
+        window.event.currentTarget.classList.remove('border-[#D8CBB9]', 'text-[#6E675E]', 'bg-[#FDFBF7]');
+        window.event.currentTarget.classList.add('border-[#19B8C5]', 'text-[#66725F]', 'bg-[#EDE5D8]');
+      }
+      renderCards();
+      scrollToSection('dolores-grid');
+    }
+
+    function quickFilter(zone) {
+      currentZone = zone;
+      renderCards();
+      scrollToSection('dolores-grid');
+    }
+
+    function handleSearch(val) {
+      searchQuery = val;
+      renderCards();
+    }
+
+    function scrollToSection(id) {
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    }
+
+    function openBookingModal(painId) {
+      const modal = document.getElementById('booking-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      if (painId) document.getElementById('form-pain').value = painId;
+    }
+
+    function closeBookingModal() {
+      const modal = document.getElementById('booking-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      document.getElementById('modal-success').classList.add('hidden');
+      document.getElementById('booking-form').classList.remove('hidden');
+    }
+
+    /* ---------- Envío de solicitudes: cifrado en el navegador + archivo en GitHub ---------- */
+    /*CRYPTO-START*/
+    function bufToB64(buf) {
+      const bytes = new Uint8Array(buf);
+      let bin = '';
+      for (let i = 0; i < bytes.length; i++) bin += String.fromCharCode(bytes[i]);
+      return btoa(bin);
+    }
+
+    // Cifrado híbrido: AES-GCM para los datos y RSA-OAEP para proteger la clave AES.
+    // Solo quien tenga la clave privada (el panel) puede leer la solicitud.
+    async function cifrarSolicitud(obj, publicJwk) {
+      const pub = await crypto.subtle.importKey('jwk', publicJwk, { name: 'RSA-OAEP', hash: 'SHA-256' }, false, ['encrypt']);
+      const aes = await crypto.subtle.generateKey({ name: 'AES-GCM', length: 256 }, true, ['encrypt']);
+      const iv = crypto.getRandomValues(new Uint8Array(12));
+      const ct = await crypto.subtle.encrypt({ name: 'AES-GCM', iv }, aes, new TextEncoder().encode(JSON.stringify(obj)));
+      const raw = await crypto.subtle.exportKey('raw', aes);
+      const k = await crypto.subtle.encrypt({ name: 'RSA-OAEP' }, pub, raw);
+      return { v: 1, alg: 'RSA-OAEP-256+A256GCM', k: bufToB64(k), iv: bufToB64(iv), ct: bufToB64(ct) };
+    }
+    /*CRYPTO-END*/
+
+    async function enviarSolicitud(p) {
+      const cfg = window.FORM_CONFIG;
+      if (!cfg || !cfg.repo || !cfg.token || !cfg.publicKey) throw new Error('El envío en línea aún no está activado.');
+      if (!(window.crypto && crypto.subtle)) throw new Error('Tu navegador no permite el envío seguro.');
+
+      try {
+        const last = Number(localStorage.getItem('ehw_last_submit') || 0);
+        if (Date.now() - last < 45000) throw new Error('Ya enviaste una solicitud hace un momento. Espera unos segundos.');
+      } catch (e) { if (e.message && e.message.indexOf('Ya enviaste') === 0) throw e; }
+
+      const now = new Date();
+      const registro = {
+        fecha: now.toISOString(),
+        nombre: String(p.nombre).slice(0, 80),
+        telefono: String(p.telefono).slice(0, 30),
+        dolorId: String(p.dolorId || '').slice(0, 40),
+        dolor: String(p.dolor || '').slice(0, 160),
+        duracion: String(p.duracion || '').slice(0, 60),
+        intensidad: Math.min(10, Math.max(1, Number(p.intensidad) || 5)),
+        detalle: String(p.detalle || '').slice(0, 1500)
+      };
+      const sobre = await cifrarSolicitud(registro, cfg.publicKey);
+
+      const rand = Array.from(crypto.getRandomValues(new Uint8Array(3))).map(b => b.toString(16).padStart(2, '0')).join('');
+      const nombreArchivo = now.toISOString().replace(/[-:.]/g, '') + '-' + rand + '.json';
+      const token = [].concat(cfg.token).join('');
+
+      const res = await fetch('https://api.github.com/repos/' + cfg.repo + '/contents/data/' + nombreArchivo, {
+        method: 'PUT',
+        headers: {
+          'Authorization': 'Bearer ' + token,
+          'Accept': 'application/vnd.github+json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ message: 'Nueva solicitud', content: btoa(JSON.stringify(sobre)) })
+      });
+      if (!res.ok) throw new Error('No se pudo registrar la solicitud (código ' + res.status + ').');
+      try { localStorage.setItem('ehw_last_submit', String(Date.now())); } catch (e) {}
+    }
+
+    function escHtml(t) {
+      return String(t).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    }
+
+    async function handleFormSubmit(e) {
+      e.preventDefault();
+
+      const painSelect = document.getElementById('form-pain');
+      const painText = painSelect.options[painSelect.selectedIndex].text;
+      const payload = {
+        dolorId: painSelect.value,
+        dolor: painText,
+        duracion: document.getElementById('form-duration').value,
+        intensidad: Number(document.getElementById('form-intensity').value),
+        nombre: document.getElementById('form-name').value.trim(),
+        telefono: document.getElementById('form-phone').value.trim(),
+        detalle: document.getElementById('form-notes').value.trim(),
+        web: document.getElementById('form-web').value
+      };
+
+      const btn = document.getElementById('form-submit');
+      const errEl = document.getElementById('form-error');
+      errEl.classList.add('hidden');
+      const label = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = 'Enviando...';
+
+      try {
+        // Validación básica
+        if (payload.nombre.length < 2) throw new Error('Indica tu nombre.');
+        if ((payload.telefono.match(/\d/g) || []).length < 8) throw new Error('Indica un teléfono válido.');
+        if (payload.web) { /* campo trampa para bots: se simula éxito sin enviar */ }
+        else { await enviarSolicitud(payload); }
+
+        document.getElementById('modal-success-summary').innerHTML = `
+          <p><strong class="text-[#0D808B]">Nombre:</strong> ${escHtml(payload.nombre)}</p>
+          <p><strong class="text-[#0D808B]">Teléfono:</strong> ${escHtml(payload.telefono)}</p>
+          <p><strong class="text-[#0D808B]">Dolor:</strong> ${escHtml(payload.dolor)}</p>
+          <p><strong class="text-[#0D808B]">Tiempo con el dolor:</strong> ${escHtml(payload.duracion)}</p>
+          <p><strong class="text-[#0D808B]">Intensidad:</strong> ${payload.intensidad}/10</p>
+          <p><strong class="text-[#0D808B]">Detalle:</strong> ${escHtml(payload.detalle || 'Sin detalles adicionales')}</p>
+        `;
+        document.getElementById('booking-form').reset();
+        document.getElementById('booking-form').classList.add('hidden');
+        document.getElementById('modal-success').classList.remove('hidden');
+      } catch (err) {
+        errEl.textContent = (err && err.message ? err.message : 'No se pudo enviar.') + ' Puedes intentar de nuevo o escribirnos por WhatsApp.';
+        errEl.classList.remove('hidden');
+      } finally {
+        btn.disabled = false;
+        btn.textContent = label;
+      }
+    }
+
+    function sendViaWhatsAppDirect() {
+      const pain = document.getElementById('form-pain').value;
+      const name = document.getElementById('form-name').value || 'Paciente';
+      const notes = document.getElementById('form-notes').value || '';
+      const text = `Hola www.mejorame.org! Mi nombre es ${name}. Deseo consultar por mi dolor: ${pain}. Detalle: ${notes}`;
+      window.open(`https://wa.me/56981301319?text=${encodeURIComponent(text)}`, '_blank');
+    }
+
+    let wizardZone = 'espalda-baja';
+    let wizardZoneName = 'Espalda baja (Lumbar)';
+    let wizardDur = '1 a 4 semanas';
+    let wizardIntensity = 6;
+
+    function setWizardZone(id, name) {
+      wizardZone = id;
+      wizardZoneName = name;
+      goToStep(2);
+    }
+
+    function setWizardDuration(d) {
+      wizardDur = d;
+      document.querySelectorAll('.dur-btn').forEach(b => {
+        b.classList.remove('border-[#19B8C5]', 'text-[#66725F]', 'bg-[#EDE5D8]');
+        b.classList.add('border-[#D8CBB9]', 'text-[#6E675E]', 'bg-[#F5F0E6]');
+      });
+      if (window.event && window.event.currentTarget) {
+        window.event.currentTarget.classList.remove('border-[#D8CBB9]', 'text-[#6E675E]', 'bg-[#F5F0E6]');
+        window.event.currentTarget.classList.add('border-[#19B8C5]', 'text-[#66725F]', 'bg-[#EDE5D8]');
+      }
+    }
+
+    function updateIntensity(val) {
+      wizardIntensity = val;
+      const el = document.getElementById('intensity-val');
+      if (val <= 3) el.innerText = `${val}/10 (Molestia Leve)`;
+      else if (val <= 6) el.innerText = `${val}/10 (Moderado a Intenso)`;
+      else el.innerText = `${val}/10 (Dolor Severo Limitante)`;
+    }
+
+    function goToStep(step) {
+      document.getElementById('step-1').classList.add('hidden');
+      document.getElementById('step-2').classList.add('hidden');
+      document.getElementById('step-3').classList.add('hidden');
+
+      document.getElementById(`step-${step}`).classList.remove('hidden');
+      document.getElementById('step-count').innerText = step;
+      document.getElementById('wizard-step-num').innerText = step;
+
+      if (step === 3) {
+        document.getElementById('wizard-step-title').innerText = 'Resultado y Recomendación';
+        document.getElementById('res-pain-name').innerText = wizardZoneName;
+        const msg = `Hola www.mejorame.org! Hice el evaluador de dolor: Siento dolor en "${wizardZoneName}" con duración "${wizardDur}" e intensidad ${wizardIntensity}/10. Deseo orientación.`;
+        document.getElementById('wizard-wa-btn').href = `https://wa.me/56981301319?text=${encodeURIComponent(msg)}`;
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderCards();
+    });
+  </script>
+</body>
+</html>
